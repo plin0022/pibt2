@@ -1,0 +1,1198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="pibt2"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\third_party\;CMake Files\third_party\googletest\;CMake Files\third_party\googletest\googlemock\;CMake Files\third_party\googletest\googlemock\cmake\;CMake Files\third_party\googletest\googletest\;CMake Files\third_party\googletest\googletest\cmake\;CMake Files\third_party\grid-pathfinding\;CMake Files\third_party\grid-pathfinding\graph\;CMake Files\pibt2\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mapf">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/mapf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 mapf"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mapf/fast">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/mapf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 mapf/fast"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mapd">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/mapd" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 mapd"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mapd/fast">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/mapd" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 mapd/fast"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="clang-format">
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clang-format"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_plan">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/test_plan" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 test_plan"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_plan/fast">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/test_plan" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 test_plan/fast"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_paths">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/test_paths" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 test_paths"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_paths/fast">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/test_paths" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 test_paths/fast"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_solver">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/test_solver" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 test_solver"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_solver/fast">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/test_solver" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 test_solver/fast"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_problem">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/test_problem" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 test_problem"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_problem/fast">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/test_problem" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 test_problem/fast"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_hca">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/test_hca" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 test_hca"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_hca/fast">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/test_hca" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 test_hca/fast"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_pibt">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/test_pibt" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 test_pibt"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_pibt/fast">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/test_pibt" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 test_pibt/fast"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_push_and_swap">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/test_push_and_swap" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 test_push_and_swap"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_push_and_swap/fast">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/test_push_and_swap" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 test_push_and_swap/fast"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_pibt_plus">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/test_pibt_plus" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 test_pibt_plus"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_pibt_plus/fast">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/test_pibt_plus" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 test_pibt_plus/fast"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_pibt_mapd">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/test_pibt_mapd" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 test_pibt_mapd"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_pibt_mapd/fast">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/test_pibt_mapd" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 test_pibt_mapd/fast"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_tp">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/test_tp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 test_tp"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test_tp/fast">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/test_tp" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 test_tp/fast"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 test"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test/fast">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 test/fast"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lib-mapf">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/pibt2/liblib-mapf.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/pibt2"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D_MAPDIR_=&quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/../map/&quot;"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/pibt2/Makefile&quot;  VERBOSE=1 lib-mapf"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/pibt2/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/pibt2/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/pibt2/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lib-mapf/fast">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/pibt2/liblib-mapf.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/pibt2"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D_MAPDIR_=&quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/../map/&quot;"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/./include"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/pibt2/Makefile&quot;  VERBOSE=1 lib-mapf/fast"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/pibt2/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/pibt2/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/pibt2/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lib-graph">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/pibt2/graph/liblib-graph.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/pibt2/graph"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D_MAPDIR_=&quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/../map/&quot;"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/pibt2/graph/Makefile&quot;  VERBOSE=1 lib-graph"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/pibt2/graph/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/pibt2/graph/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/pibt2/graph/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lib-graph/fast">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/pibt2/graph/liblib-graph.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/pibt2/graph"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D_MAPDIR_=&quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/../map/&quot;"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/pibt2/graph/Makefile&quot;  VERBOSE=1 lib-graph/fast"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/pibt2/graph/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/pibt2/graph/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/pibt2/graph/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gmock">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/lib/libgmockd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googlemock"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googlemock/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googlemock"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googlemock/Makefile&quot;  VERBOSE=1 gmock"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gmock/fast">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/lib/libgmockd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googlemock"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googlemock/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googlemock"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googlemock/Makefile&quot;  VERBOSE=1 gmock/fast"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gmock_main">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/lib/libgmock_maind.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googlemock"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googlemock/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googlemock"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googlemock/Makefile&quot;  VERBOSE=1 gmock_main"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gmock_main/fast">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/lib/libgmock_maind.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googlemock"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googlemock/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googlemock"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googlemock/Makefile&quot;  VERBOSE=1 gmock_main/fast"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/lib/libgtestd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googletest/Makefile&quot;  VERBOSE=1 gtest"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest/fast">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/lib/libgtestd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googletest/Makefile&quot;  VERBOSE=1 gtest/fast"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest_main">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/lib/libgtest_maind.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googletest/Makefile&quot;  VERBOSE=1 gtest_main"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest_main/fast">
+				<Option output="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/lib/libgtest_maind.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/include"/>
+					<Add directory="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googletest/Makefile&quot;  VERBOSE=1 gtest_main/fast"/>
+					<CompileFile command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j32 -f &quot;/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/cmake-build-debug-wsl/third_party/googletest/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/mapd.cpp">
+			<Option target="mapd"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/mapf.cpp">
+			<Option target="mapf"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/src/hca.cpp">
+			<Option target="lib-mapf"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/src/paths.cpp">
+			<Option target="lib-mapf"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/src/pibt.cpp">
+			<Option target="lib-mapf"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/src/pibt_mapd.cpp">
+			<Option target="lib-mapf"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/src/pibt_plus.cpp">
+			<Option target="lib-mapf"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/src/plan.cpp">
+			<Option target="lib-mapf"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/src/problem.cpp">
+			<Option target="lib-mapf"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/src/push_and_swap.cpp">
+			<Option target="lib-mapf"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/src/solver.cpp">
+			<Option target="lib-mapf"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/src/tp.cpp">
+			<Option target="lib-mapf"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/tests/test_hca.cpp">
+			<Option target="test_hca"/>
+			<Option target="test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/tests/test_paths.cpp">
+			<Option target="test_paths"/>
+			<Option target="test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/tests/test_pibt.cpp">
+			<Option target="test_pibt"/>
+			<Option target="test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/tests/test_pibt_mapd.cpp">
+			<Option target="test_pibt_mapd"/>
+			<Option target="test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/tests/test_pibt_plus.cpp">
+			<Option target="test_pibt_plus"/>
+			<Option target="test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/tests/test_plan.cpp">
+			<Option target="test_plan"/>
+			<Option target="test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/tests/test_problem.cpp">
+			<Option target="test_problem"/>
+			<Option target="test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/tests/test_push_and_swap.cpp">
+			<Option target="test_push_and_swap"/>
+			<Option target="test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/tests/test_solver.cpp">
+			<Option target="test_solver"/>
+			<Option target="test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/tests/test_tp.cpp">
+			<Option target="test_tp"/>
+			<Option target="test"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googlemock/src/gmock-all.cc">
+			<Option target="gmock"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googlemock/src/gmock_main.cc">
+			<Option target="gmock_main"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/src/gtest-all.cc">
+			<Option target="gtest"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/src/gtest_main.cc">
+			<Option target="test_plan"/>
+			<Option target="test_paths"/>
+			<Option target="test_solver"/>
+			<Option target="test_problem"/>
+			<Option target="test_hca"/>
+			<Option target="test_pibt"/>
+			<Option target="test_push_and_swap"/>
+			<Option target="test_pibt_plus"/>
+			<Option target="test_pibt_mapd"/>
+			<Option target="test_tp"/>
+			<Option target="test"/>
+			<Option target="gtest_main"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/src/graph.cpp">
+			<Option target="lib-graph"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/src/node.cpp">
+			<Option target="lib-graph"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/src/pos.cpp">
+			<Option target="lib-graph"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third_party\googletest\"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googlemock/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third_party\googletest\googlemock\"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googlemock/cmake/gmock.pc.in">
+			<Option virtualFolder="CMake Files\third_party\googletest\googlemock\cmake\"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googlemock/cmake/gmock_main.pc.in">
+			<Option virtualFolder="CMake Files\third_party\googletest\googlemock\cmake\"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third_party\googletest\googletest\"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/cmake/Config.cmake.in">
+			<Option virtualFolder="CMake Files\third_party\googletest\googletest\cmake\"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/cmake/gtest.pc.in">
+			<Option virtualFolder="CMake Files\third_party\googletest\googletest\cmake\"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/cmake/gtest_main.pc.in">
+			<Option virtualFolder="CMake Files\third_party\googletest\googletest\cmake\"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/googletest/googletest/cmake/internal_utils.cmake">
+			<Option virtualFolder="CMake Files\third_party\googletest\googletest\cmake\"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/third_party/grid-pathfinding/graph/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\third_party\grid-pathfinding\graph\"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/lpq66/OneDrive/Desktop/project_test/pibt_test_1/pibt2/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\pibt2\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
