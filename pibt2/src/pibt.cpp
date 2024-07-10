@@ -32,7 +32,8 @@ void PIBT::run()
                          g,                          // goal
                          0,                          // elapsed
                          d,                          // dist from s -> g
-                         getRandomFloat(0, 1, MT)};  // tie-breaker
+                         getRandomFloat(0, 1, MT),
+    0};  // tie-breaker
     A.push_back(a);
     occupied_now[s->id] = a;
   }
@@ -87,12 +88,20 @@ void PIBT::run()
 //    if (timestep >= max_timestep || overCompTime()) {
 //      break;
 //    }
-    
+
     // failed
     if (timestep >= max_timestep) {
       break;
     }
   }
+
+  // sum of compromises of all agents
+  volatile int all_sum_of_comp = 0;
+  for (auto a : A)
+  {
+    all_sum_of_comp = all_sum_of_comp + a->sum_of_comp;
+  }
+
 
   // memory clear
   for (auto a : A) delete a;
@@ -121,6 +130,10 @@ bool PIBT::funcPIBT(Agent* ai, Agent* aj)
   // sort
   std::sort(C.begin(), C.end(), compare);
 
+  // find out the shortest distance
+  volatile int shortest_dist = pathDist(ai->id, C[0]);
+  volatile int comp = 0;
+
   for (auto u : C) {
     // avoid conflicts
     if (occupied_next[u->id] != nullptr) continue;
@@ -134,13 +147,30 @@ bool PIBT::funcPIBT(Agent* ai, Agent* aj)
     if (ak != nullptr && ak->v_next == nullptr) {
       if (!funcPIBT(ak, ai)) continue;  // replanning
     }
+
+
+    // define compromise
+    if (ai->v_now == ai->g)
+    {
+      comp = 2 * (pathDist(ai->id, ai->v_next) - shortest_dist);
+    }
+    else
+    {
+      comp = pathDist(ai->id, ai->v_next) - shortest_dist;
+    }
+
     // success to plan next one step
+    ai->sum_of_comp = ai->sum_of_comp + comp;
     return true;
   }
 
   // failed to secure node
   occupied_next[ai->v_now->id] = ai;
   ai->v_next = ai->v_now;
+
+  // define compromise
+  comp = pathDist(ai->id, ai->v_next) - shortest_dist;
+  ai->sum_of_comp = ai->sum_of_comp + comp;
   return false;
 }
 

@@ -26,6 +26,7 @@ private:
     int elapsed;        // eta
     int init_d;         // initial distance
     float tie_breaker;  // epsilon, tie-breaker
+    int sum_of_comp;    // compromises
   };
   using Agents = std::vector<Agent*>;
 
