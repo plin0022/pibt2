@@ -84,7 +84,12 @@ void PIBT::run()
     }
 
     // failed
-    if (timestep >= max_timestep || overCompTime()) {
+//    if (timestep >= max_timestep || overCompTime()) {
+//      break;
+//    }
+    
+    // failed
+    if (timestep >= max_timestep) {
       break;
     }
   }
