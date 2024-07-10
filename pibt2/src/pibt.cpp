@@ -16,7 +16,7 @@ void PIBT::run()
   auto compare = [](Agent* a, const Agent* b) {
     if (a->elapsed != b->elapsed) return a->elapsed > b->elapsed;
     // use initial distance
-    if (a->init_d != b->init_d) return a->init_d > b->init_d;
+//    if (a->init_d != b->init_d) return a->init_d > b->init_d;
     return a->tie_breaker > b->tie_breaker;
   };
   Agents A;

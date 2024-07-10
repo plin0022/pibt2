@@ -7,7 +7,7 @@ agents=3
 
 ## ==== custom =======
 ## seed of randomization
-seed=1
+seed=12
 
 ## true  -> random starts/goals
 ## false -> use custom starts/goals
@@ -30,3 +30,8 @@ max_comp_time=5000
 29,25,7,18
 25,8,5,8
 23,30,12,28
+20,23,25,28
+15,9,17,11
+11,7,0,3
+12,18,28,14
+30,30,17,20
