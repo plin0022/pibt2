@@ -57,7 +57,17 @@ void PIBT::run()
       }
     }
 
-    // acting
+    // observing current_comp
+    volatile int obs = 0;
+    for (auto a : A)
+    {
+      if (a->current_comp != 0)
+      {
+        obs = 1;
+      }
+    }
+
+    // modified acting
     bool check_goal_cond = true;
     Config config(P->getNum(), nullptr);
     for (auto a : A) {
@@ -74,7 +84,27 @@ void PIBT::run()
       // reset params
       a->v_now = a->v_next;
       a->v_next = nullptr;
+      a->current_comp = 0;
     }
+
+    // acting
+//    bool check_goal_cond = true;
+//    Config config(P->getNum(), nullptr);
+//    for (auto a : A) {
+//      // clear
+//      if (occupied_now[a->v_now->id] == a) occupied_now[a->v_now->id] = nullptr;
+//      occupied_next[a->v_next->id] = nullptr;
+//      // set next location
+//      config[a->id] = a->v_next;
+//      occupied_now[a->v_next->id] = a;
+//      // check goal condition
+//      check_goal_cond &= (a->v_next == a->g);
+//      // update priority
+//      a->elapsed = (a->v_next == a->g) ? 0 : a->elapsed + 1;
+//      // reset params
+//      a->v_now = a->v_next;
+//      a->v_next = nullptr;
+//    }
 
     // update plan
     solution.add(config);
