@@ -27,6 +27,7 @@ private:
     int init_d;         // initial distance
     float tie_breaker;  // epsilon, tie-breaker
     int sum_of_comp;    // compromises
+    int current_comp;   // current compromises used for comparing plans
   };
   using Agents = std::vector<Agent*>;
 

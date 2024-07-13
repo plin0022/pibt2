@@ -26,14 +26,17 @@ void PIBT::run()
     Node* s = P->getStart(i);
     Node* g = P->getGoal(i);
     int d = disable_dist_init ? 0 : pathDist(i);
-    Agent* a = new Agent{i,                          // id
-                         s,                          // current location
-                         nullptr,                    // next location
-                         g,                          // goal
-                         0,                          // elapsed
-                         d,                          // dist from s -> g
-                         getRandomFloat(0, 1, MT),
-    0};  // tie-breaker
+    Agent* a = new Agent{
+        i,                          // id
+        s,                          // current location
+        nullptr,                    // next location
+        g,                          // goal
+        0,                          // elapsed
+        d,                          // dist from s -> g
+        getRandomFloat(0, 1, MT),// tie-breaker
+        0,
+        0
+    };
     A.push_back(a);
     occupied_now[s->id] = a;
   }
@@ -160,6 +163,7 @@ bool PIBT::funcPIBT(Agent* ai, Agent* aj)
     }
 
     // success to plan next one step
+    ai->current_comp = comp;
     ai->sum_of_comp = ai->sum_of_comp + comp;
     return true;
   }
@@ -170,6 +174,7 @@ bool PIBT::funcPIBT(Agent* ai, Agent* aj)
 
   // define compromise
   comp = pathDist(ai->id, ai->v_next) - shortest_dist;
+  ai->current_comp = comp;
   ai->sum_of_comp = ai->sum_of_comp + comp;
   return false;
 }
