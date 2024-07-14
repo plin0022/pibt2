@@ -65,124 +65,124 @@ void PIBT::run()
     }
 
     // modified acting
-    bool check_goal_cond = true;
-    Config config(P->getNum(), nullptr);
-
-    if (curr_sum_of_comp == 0)
-    {
-      for (auto a : A) {
-        // clear
-        if (occupied_now[a->v_now->id] == a) occupied_now[a->v_now->id] = nullptr;
-        occupied_next[a->v_next->id] = nullptr;
-        // set next location
-        config[a->id] = a->v_next;
-        occupied_now[a->v_next->id] = a;
-        // check goal condition
-        check_goal_cond &= (a->v_next == a->g);
-        // update priority
-  //        a->elapsed = (a->v_next == a->g) ? 0 : a->elapsed + 1;
-        // reset params
-        a->v_now = a->v_next;
-        a->v_next = nullptr;
-        a->current_comp = 0;
-      }
-    }
-    else
-    {
-      volatile int initial_sum_comp = 0;
-      for (auto a : A)
-      {
-        initial_sum_comp = initial_sum_comp + a->current_comp;
-        config[a->id] = a->v_next;
-      }
-
-      // simulation
-      for (int idx = 0; idx < 5; ++idx)
-      {
-        for (auto a : A) {
-          // clear
-          if (occupied_now[a->v_now->id] == a) occupied_now[a->v_now->id] = nullptr;
-          occupied_next[a->v_next->id] = nullptr;
-          // backtrace
-          occupied_now[a->v_now->id] = a;
-          // update priority
-          if (a->current_comp != 0)
-          {
-            float temp_tie = 0;
-            temp_tie = a->tie_breaker;
-            a->tie_breaker= A[0]->tie_breaker;
-            A[0]->tie_breaker = temp_tie;
-          }
-          // reset params
-          a->v_next = nullptr;
-          a->sum_of_comp = a->sum_of_comp - a->current_comp;
-          a->current_comp = 0;
-        }
-
-        // replan
-        std::sort(A.begin(), A.end(), compare);
-        for (auto a : A) {
-          // if the agent has next location, then skip
-          if (a->v_next == nullptr) {
-            // determine its next location
-            funcPIBT(a);
-          }
-        }
-
-        volatile int temp_sum_comp = 0;
-        for (auto a : A)
-        {
-          temp_sum_comp = temp_sum_comp + a->current_comp;
-        }
-
-        if (temp_sum_comp < initial_sum_comp)
-        {
-          initial_sum_comp = temp_sum_comp;
-          for (auto a : A)
-          {
-            config[a->id] = a->v_next;
-          }
-        }
-
-      }
-
-      for (auto a : A) {
-        // clear
-        if (occupied_now[a->v_now->id] == a) occupied_now[a->v_now->id] = nullptr;
-        occupied_next[a->v_next->id] = nullptr;
-        // set next location
-        occupied_now[config[a->id]->id] = a;
-        // check goal condition
-        check_goal_cond &= (config[a->id] == a->g);
-        // update priority
-        //        a->elapsed = (a->v_next == a->g) ? 0 : a->elapsed + 1;
-        // reset params
-        a->v_now = config[a->id];
-        a->v_next = nullptr;
-        a->current_comp = 0;
-      }
-    }
+//    bool check_goal_cond = true;
+//    Config config(P->getNum(), nullptr);
+//
+//    if (curr_sum_of_comp == 0)
+//    {
+//      for (auto a : A) {
+//        // clear
+//        if (occupied_now[a->v_now->id] == a) occupied_now[a->v_now->id] = nullptr;
+//        occupied_next[a->v_next->id] = nullptr;
+//        // set next location
+//        config[a->id] = a->v_next;
+//        occupied_now[a->v_next->id] = a;
+//        // check goal condition
+//        check_goal_cond &= (a->v_next == a->g);
+//        // update priority
+//        a->elapsed = (a->v_next == a->g) ? 0 : a->elapsed + 1;
+//        // reset params
+//        a->v_now = a->v_next;
+//        a->v_next = nullptr;
+//        a->current_comp = 0;
+//      }
+//    }
+//    else
+//    {
+//      volatile int initial_sum_comp = 0;
+//      for (auto a : A)
+//      {
+//        initial_sum_comp = initial_sum_comp + a->current_comp;
+//        config[a->id] = a->v_next;
+//      }
+//
+//      // simulation
+//      for (int idx = 0; idx < 20; ++idx)
+//      {
+//        for (auto a : A) {
+//          // clear
+//          if (occupied_now[a->v_now->id] == a) occupied_now[a->v_now->id] = nullptr;
+//          occupied_next[a->v_next->id] = nullptr;
+//          // backtrace
+//          occupied_now[a->v_now->id] = a;
+//          // update priority
+//          if (a->current_comp != 0)
+//          {
+//            float temp_tie = 0;
+//            temp_tie = a->tie_breaker;
+//            a->tie_breaker= A[0]->tie_breaker;
+//            A[0]->tie_breaker = temp_tie;
+//          }
+//          // reset params
+//          a->v_next = nullptr;
+//          a->sum_of_comp = a->sum_of_comp - a->current_comp;
+//          a->current_comp = 0;
+//        }
+//
+//        // replan
+//        std::sort(A.begin(), A.end(), compare);
+//        for (auto a : A) {
+//          // if the agent has next location, then skip
+//          if (a->v_next == nullptr) {
+//            // determine its next location
+//            funcPIBT(a);
+//          }
+//        }
+//
+//        volatile int temp_sum_comp = 0;
+//        for (auto a : A)
+//        {
+//          temp_sum_comp = temp_sum_comp + a->current_comp;
+//        }
+//
+//        if (temp_sum_comp < initial_sum_comp)
+//        {
+//          initial_sum_comp = temp_sum_comp;
+//          for (auto a : A)
+//          {
+//            config[a->id] = a->v_next;
+//          }
+//        }
+//
+//      }
+//
+//      for (auto a : A) {
+//        // clear
+//        if (occupied_now[a->v_now->id] == a) occupied_now[a->v_now->id] = nullptr;
+//        occupied_next[a->v_next->id] = nullptr;
+//        // set next location
+//        occupied_now[config[a->id]->id] = a;
+//        // check goal condition
+//        check_goal_cond &= (config[a->id] == a->g);
+//        // update priority
+//        a->elapsed = (a->v_next == a->g) ? 0 : a->elapsed + 1;
+//        // reset params
+//        a->v_now = config[a->id];
+//        a->v_next = nullptr;
+//        a->current_comp = 0;
+//      }
+//    }
 
 
 
     // acting
-//    bool check_goal_cond = true;
-//    Config config(P->getNum(), nullptr);
-//    for (auto a : A) {
-//      // clear
-//      if (occupied_now[a->v_now->id] == a) occupied_now[a->v_now->id] = nullptr;
-//      occupied_next[a->v_next->id] = nullptr;
-//      // set next location
-//      config[a->id] = a->v_next;
-//      occupied_now[a->v_next->id] = a;
-//      // check goal condition
-//      check_goal_cond &= (a->v_next == a->g);
-//      // update priority
-//      a->elapsed = (a->v_next == a->g) ? 0 : a->elapsed + 1;
-//      // reset params
-//      a->v_now = a->v_next;
-//      a->v_next = nullptr;
-//    }
+    bool check_goal_cond = true;
+    Config config(P->getNum(), nullptr);
+    for (auto a : A) {
+      // clear
+      if (occupied_now[a->v_now->id] == a) occupied_now[a->v_now->id] = nullptr;
+      occupied_next[a->v_next->id] = nullptr;
+      // set next location
+      config[a->id] = a->v_next;
+      occupied_now[a->v_next->id] = a;
+      // check goal condition
+      check_goal_cond &= (a->v_next == a->g);
+      // update priority
+      a->elapsed = (a->v_next == a->g) ? 0 : a->elapsed + 1;
+      // reset params
+      a->v_now = a->v_next;
+      a->v_next = nullptr;
+    }
 
     // update plan
     solution.add(config);
