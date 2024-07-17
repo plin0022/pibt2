@@ -61,7 +61,6 @@ void PIBT::run()
     }
 
 
-
     // observing current_comp
     volatile int curr_sum_of_comp = 0;
     for (auto a : A)
