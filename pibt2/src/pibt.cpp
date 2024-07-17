@@ -15,8 +15,10 @@ void PIBT::run()
   // compare priority of agents
   auto compare = [](Agent* a, const Agent* b) {
     if (a->elapsed != b->elapsed) return a->elapsed > b->elapsed;
-    // use initial distance
+//    // use initial distance
 //    if (a->init_d != b->init_d) return a->init_d > b->init_d;
+    // use current distance
+    if (a->curr_d != b->curr_d) return a->curr_d > b->curr_d;
     return a->tie_breaker > b->tie_breaker;
   };
   Agents A;
@@ -33,6 +35,7 @@ void PIBT::run()
         g,                          // goal
         0,                          // elapsed
         d,                          // dist from s -> g
+        d,                         // curr_dist from s-> g
         getRandomFloat(0, 1, MT),// tie-breaker
         0,
         0
@@ -181,6 +184,35 @@ void PIBT::run()
 //      a->v_now = a->v_next;
 //      a->v_next = nullptr;
 //    }
+
+
+    // update current distance
+    for (auto a : A)
+    {
+      // get candidates
+      Nodes C = a->v_now->neighbor;
+      C.push_back(a->v_now);
+      std::vector<int> dis_vector;
+      for (auto c_node : C)
+      {
+        dis_vector.push_back(pathDist(a->id, c_node));
+      }
+
+      // Find the iterator to the minimum element
+      auto min_it = std::min_element(dis_vector.begin(), dis_vector.end());
+
+      // Dereference the iterator to get the minimum value
+      volatile int min_value = *min_it;
+
+      // find out the shortest distance
+      volatile int counter = 0;
+      for (auto dis_num : dis_vector)
+      {
+        if (dis_num == min_value) counter = counter + 1;
+      }
+
+      a->curr_d = counter * min_value;
+    }
 
     // update plan
     solution.add(config);
