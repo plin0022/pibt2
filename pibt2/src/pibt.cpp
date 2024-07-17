@@ -152,6 +152,8 @@ void PIBT::run()
 
       }
 
+
+      // update Agents
       for (auto a : A) {
         // clear
         if (occupied_now[a->v_now->id] == a) occupied_now[a->v_now->id] = nullptr;
@@ -190,7 +192,7 @@ void PIBT::run()
 //      a->v_now = a->v_next;
 //      a->v_next = nullptr;
 //    }
-    
+
 
     // update plan
     solution.add(config);
