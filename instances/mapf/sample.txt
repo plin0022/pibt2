@@ -3,7 +3,7 @@
 map_file=random-32-32-20.map
 
 ## number of agents
-agents=50
+agents=200
 
 ## ==== custom =======
 ## seed of randomization
@@ -11,7 +11,7 @@ seed=1
 
 ## true  -> random starts/goals
 ## false -> use custom starts/goals
-random_problem=0
+random_problem=1
 
 ## timestep limit
 max_timestep=1000
