@@ -18,7 +18,7 @@ void PIBT::run()
 //    // use initial distance
 //    if (a->init_d != b->init_d) return a->init_d > b->init_d;
     // use current distance
-    if (a->curr_d != b->curr_d) return a->curr_d < b->curr_d;
+//    if (a->curr_d != b->curr_d) return a->curr_d < b->curr_d;
     return a->tie_breaker > b->tie_breaker;
   };
   Agents A;
@@ -314,10 +314,17 @@ void PIBT::updateCURRENTDIS(const Agents& A)
 //    }
 
     // evaluate the current position potential for deciding priority of the agent
-    volatile int final_value = 5;
+    volatile int final_value = 0;
     for (auto c_node : C)
     {
-      final_value = final_value + pathDist(a->id, c_node) - current_value;
+      if ((pathDist(a->id, c_node) - current_value) == -1)
+      {
+        final_value = final_value + 2;
+      }
+      else if ((pathDist(a->id, c_node) - current_value) == 0)
+      {
+        final_value = final_value + 1;
+      }
     }
 
 
