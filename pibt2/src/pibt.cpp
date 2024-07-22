@@ -18,7 +18,7 @@ void PIBT::run()
 //    // use initial distance
 //    if (a->init_d != b->init_d) return a->init_d > b->init_d;
     // use current distance
-//    if (a->curr_d != b->curr_d) return a->curr_d < b->curr_d;
+    if (a->curr_d != b->curr_d) return a->curr_d > b->curr_d;
     return a->tie_breaker > b->tie_breaker;
   };
   Agents A;
@@ -45,10 +45,14 @@ void PIBT::run()
   }
   solution.add(P->getConfigStart());
 
+
   // main loop
   int timestep = 0;
   while (true) {
     info(" ", "elapsed:", getSolverElapsedTime(), ", timestep:", timestep);
+
+//    // update curr_d
+//    updateCURRENTDIS(A);
 
     // planning
     std::sort(A.begin(), A.end(), compare);
@@ -93,6 +97,9 @@ void PIBT::run()
     }
     else
     {
+      // update curr_d
+      updateCURRENTDIS(A);
+
       volatile int initial_sum_comp = 0;
       for (auto a : A)
       {
@@ -114,7 +121,6 @@ void PIBT::run()
           {
             a->tie_breaker = getRandomFloat(0, 1, MT);
           }
-          a->curr_d = 0;
 
           // reset params
           a->v_next = nullptr;
@@ -122,7 +128,6 @@ void PIBT::run()
           a->current_comp = 0;
         }
 
-        updateCURRENTDIS(A);
 
         // replan
         std::sort(A.begin(), A.end(), compare);
@@ -163,7 +168,7 @@ void PIBT::run()
         check_goal_cond &= (config[a->id] == a->g);
         // update priority
         a->elapsed = (a->v_next == a->g) ? 0 : a->elapsed + 1;
-//        a->curr_d = 0;
+        a->curr_d = 0;
         // reset params
         a->v_now = config[a->id];
         a->v_next = nullptr;
@@ -327,22 +332,7 @@ void PIBT::updateCURRENTDIS(const Agents& A)
       }
     }
 
-
-
-//    // Find the iterator to the minimum element
-//    auto min_it = std::min_element(dis_vector.begin(), dis_vector.end());
-//
-//    // Dereference the iterator to get the minimum value
-//    volatile int min_value = *min_it;
-
-    // find out the shortest distance
-//    volatile int counter = 0;
-//    for (auto dis_num : dis_vector)
-//    {
-//      if (dis_num == min_value) counter = counter + 1;
-//    }
-
-    a->curr_d = a->tie_breaker + (float) final_value;
+    a->curr_d = (float) final_value;
   }
 }
 
