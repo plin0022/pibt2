@@ -51,8 +51,6 @@ void PIBT::run()
   while (true) {
     info(" ", "elapsed:", getSolverElapsedTime(), ", timestep:", timestep);
 
-//    // update curr_d
-//    updateCURRENTDIS(A);
 
     // planning
     std::sort(A.begin(), A.end(), compare);
@@ -108,7 +106,7 @@ void PIBT::run()
       }
 
       // simulation
-      for (int idx = 0; idx < 100; ++idx)
+      for (int idx = 0; idx < 50; ++idx)
       {
         for (auto a : A) {
           // clear
@@ -319,16 +317,20 @@ void PIBT::updateCURRENTDIS(const Agents& A)
 //    }
 
     // evaluate the current position potential for deciding priority of the agent
-    volatile int final_value = 0;
+    volatile int final_value = 5;
     for (auto c_node : C)
     {
       if ((pathDist(a->id, c_node) - current_value) == -1)
       {
-        final_value = final_value + 2;
-      }
-      else if ((pathDist(a->id, c_node) - current_value) == 0)
-      {
         final_value = final_value + 1;
+      }
+//      else if ((pathDist(a->id, c_node) - current_value) == 0)
+//      {
+//        final_value = final_value + 1;
+//      }
+      else if ((pathDist(a->id, c_node) - current_value) == 1)
+      {
+        final_value = final_value - 1;
       }
     }
 
