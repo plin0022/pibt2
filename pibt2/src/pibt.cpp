@@ -12,15 +12,27 @@ PIBT::PIBT(MAPF_Instance* _P)
 
 void PIBT::run()
 {
-  // compare priority of agents
-  auto compare = [](Agent* a, const Agent* b) {
+  // find out boss
+  auto compare_boss = [](Agent* a, const Agent* b) {
+    // top layer
     if (a->elapsed != b->elapsed) return a->elapsed > b->elapsed;
-//    // use initial distance
-//    if (a->init_d != b->init_d) return a->init_d > b->init_d;
+
+
+
+    if (a->curr_d != b->curr_d) return a->curr_d < b->curr_d;
+    return a->tie_breaker < b->tie_breaker;
+  };
+
+  // compare with boss value
+  auto compare = [](Agent* a, const Agent* b) {
+    if (a->boss != b->boss) return a->boss > b->boss;
+    if (a->elapsed != b->elapsed) return a->elapsed > b->elapsed;
+
     // use current distance
-    if (a->curr_d != b->curr_d) return a->curr_d > b->curr_d;
+    if (a->curr_d != b->curr_d) return a->curr_d < b->curr_d;
     return a->tie_breaker > b->tie_breaker;
   };
+
   Agents A;
 
   // initialize
@@ -35,6 +47,7 @@ void PIBT::run()
         g,                          // goal
         0,                          // elapsed
         d,                          // dist from s -> g
+        0,
         0,                         // curr_dist from s-> g
         getRandomFloat(0, 1, MT),// tie-breaker
         0,
@@ -47,9 +60,46 @@ void PIBT::run()
 
 
   // main loop
+  int boss_id = 0;
   int timestep = 0;
+  volatile int temp_goal_reached = 0;
+
+
   while (true) {
     info(" ", "elapsed:", getSolverElapsedTime(), ", timestep:", timestep);
+
+//    updateCURRENTDIS(A);
+
+//    // update boss
+//    if (timestep == 0)
+//    {
+//      updateCURRENTDIS(A);
+//      std::sort(A.begin(), A.end(), compare_boss);
+//      A[0]->boss = 1;
+//      boss_id = A[0]->id;
+//    }
+//    else
+//    {
+//      bool flag = false;
+//      for (auto a : A)
+//      {
+//        if ((a->id == boss_id) && (a->v_now == a->g))
+//        {
+//          a->boss = 0;
+//          flag = true;
+//          break;
+//        }
+//      }
+//      if (flag)
+//      {
+//        updateCURRENTDIS(A);
+//        std::sort(A.begin(), A.end(), compare_boss);
+//        A[0]->boss = 1;
+//        boss_id = A[0]->id;
+//      }
+//    }
+
+
 
 
     // planning
@@ -70,131 +120,41 @@ void PIBT::run()
       curr_sum_of_comp = curr_sum_of_comp + a->current_comp;
     }
 
-    // modified acting
-    bool check_goal_cond = true;
-    Config config(P->getNum(), nullptr);
-
-    if (curr_sum_of_comp == 0)
-    {
-      for (auto a : A) {
-        // clear
-        if (occupied_now[a->v_now->id] == a) occupied_now[a->v_now->id] = nullptr;
-        occupied_next[a->v_next->id] = nullptr;
-        // set next location
-        config[a->id] = a->v_next;
-        occupied_now[a->v_next->id] = a;
-        // check goal condition
-        check_goal_cond &= (a->v_next == a->g);
-        // update priority
-        a->elapsed = (a->v_next == a->g) ? 0 : a->elapsed + 1;
-        // reset params
-        a->v_now = a->v_next;
-        a->v_next = nullptr;
-        a->current_comp = 0;
-      }
-    }
-    else
-    {
-      // update curr_d
-      updateCURRENTDIS(A);
-
-      volatile int initial_sum_comp = 0;
-      for (auto a : A)
-      {
-        initial_sum_comp = initial_sum_comp + a->current_comp;
-        config[a->id] = a->v_next;
-      }
-
-      // simulation
-      for (int idx = 0; idx < 50; ++idx)
-      {
-        for (auto a : A) {
-          // clear
-          if (occupied_now[a->v_now->id] == a) occupied_now[a->v_now->id] = nullptr;
-          occupied_next[a->v_next->id] = nullptr;
-          // backtrace
-          occupied_now[a->v_now->id] = a;
-          // update priority
-          if (a->current_comp != 0)
-          {
-            a->tie_breaker = getRandomFloat(0, 1, MT);
-          }
-
-          // reset params
-          a->v_next = nullptr;
-          a->sum_of_comp = a->sum_of_comp - a->current_comp;
-          a->current_comp = 0;
-        }
 
 
-        // replan
-        std::sort(A.begin(), A.end(), compare);
-        for (auto a : A) {
-          // if the agent has next location, then skip
-          if (a->v_next == nullptr) {
-            // determine its next location
-            funcPIBT(a);
-          }
-        }
-
-        volatile int temp_sum_comp = 0;
-        for (auto a : A)
-        {
-          temp_sum_comp = temp_sum_comp + a->current_comp;
-        }
-
-        if (temp_sum_comp < initial_sum_comp)
-        {
-          initial_sum_comp = temp_sum_comp;
-          for (auto a : A)
-          {
-            config[a->id] = a->v_next;
-          }
-        }
-
-      }
-
-
-      // update Agents
-      for (auto a : A) {
-        // clear
-        if (occupied_now[a->v_now->id] == a) occupied_now[a->v_now->id] = nullptr;
-        occupied_next[a->v_next->id] = nullptr;
-        // set next location
-        occupied_now[config[a->id]->id] = a;
-        // check goal condition
-        check_goal_cond &= (config[a->id] == a->g);
-        // update priority
-        a->elapsed = (a->v_next == a->g) ? 0 : a->elapsed + 1;
-        a->curr_d = 0;
-        // reset params
-        a->v_now = config[a->id];
-        a->v_next = nullptr;
-        a->current_comp = 0;
-      }
-    }
-
-
+    volatile int num_goal_reached = 0;
 
     // acting
-//    bool check_goal_cond = true;
-//    Config config(P->getNum(), nullptr);
-//    for (auto a : A) {
-//      // clear
-//      if (occupied_now[a->v_now->id] == a) occupied_now[a->v_now->id] = nullptr;
-//      occupied_next[a->v_next->id] = nullptr;
-//      // set next location
-//      config[a->id] = a->v_next;
-//      occupied_now[a->v_next->id] = a;
-//      // check goal condition
-//      check_goal_cond &= (a->v_next == a->g);
-//      // update priority
-//      a->elapsed = (a->v_next == a->g) ? 0 : a->elapsed + 1;
-//      // reset params
-//      a->v_now = a->v_next;
-//      a->v_next = nullptr;
-//    }
+    bool check_goal_cond = true;
+    Config config(P->getNum(), nullptr);
+    for (auto a : A) {
+      // clear
+      if (occupied_now[a->v_now->id] == a) occupied_now[a->v_now->id] = nullptr;
+      occupied_next[a->v_next->id] = nullptr;
+      // set next location
+      config[a->id] = a->v_next;
+      occupied_now[a->v_next->id] = a;
+      // check goal condition
+      check_goal_cond &= (a->v_next == a->g);
 
+      // counter for goal reached
+      if (a->v_next == a->g)
+      {
+        num_goal_reached = num_goal_reached + 1;
+      }
+
+      // update priority
+      a->elapsed = (a->v_next == a->g) ? 0 : a->elapsed + 1;
+      // reset params
+      a->v_now = a->v_next;
+      a->v_next = nullptr;
+    }
+
+    if (num_goal_reached > temp_goal_reached)
+    {
+      temp_goal_reached = num_goal_reached;
+      updateCURRENTDIS(A);
+    }
 
     // update plan
     solution.add(config);
@@ -237,7 +197,7 @@ bool PIBT::funcPIBT(Agent* ai, Agent* aj)
     int d_v = pathDist(ai->id, v);
     int d_u = pathDist(ai->id, u);
     if (d_v != d_u) return d_v < d_u;
-    // tie break
+    // tie breaker
     if (occupied_now[v->id] != nullptr && occupied_now[u->id] == nullptr)
       return false;
     if (occupied_now[v->id] == nullptr && occupied_now[u->id] != nullptr)
@@ -307,28 +267,34 @@ void PIBT::updateCURRENTDIS(const Agents& A)
     // get candidates
     Nodes C = a->v_now->neighbor;
     C.push_back(a->v_now);
-    volatile int current_value = pathDist(a->id, a->v_now);
+//    volatile int current_value = pathDist(a->id, a->v_now);
 
     // get dis_vector
-//    std::vector<int> dis_vector;
-//    for (auto c_node : C)
-//    {
-//      dis_vector.push_back(pathDist(a->id, c_node));
-//    }
-
-    // evaluate the current position potential for deciding priority of the agent
-    volatile int final_value = 5;
+    std::vector<int> dis_vector;
     for (auto c_node : C)
     {
-      if ((pathDist(a->id, c_node) - current_value) == -1)
+      dis_vector.push_back(pathDist(a->id, c_node));
+    }
+
+    // Find the iterator to the minimum element
+    auto min_it = std::min_element(dis_vector.begin(), dis_vector.end());
+
+    // Dereference the iterator to get the minimum value
+    volatile int min_value = *min_it;
+
+    // evaluate the current position potential for deciding priority of the agent
+    volatile int final_value = 0;
+    for (auto c_node : C)
+    {
+      if ((pathDist(a->id, c_node) - min_value) == 0)
       {
         final_value = final_value + 1;
       }
-//      else if ((pathDist(a->id, c_node) - current_value) == 0)
-//      {
-//        final_value = final_value + 1;
-//      }
-      else if ((pathDist(a->id, c_node) - current_value) == 1)
+      else if ((pathDist(a->id, c_node) - min_value) == 1)
+      {
+        final_value = final_value + 0;
+      }
+      else if ((pathDist(a->id, c_node) - min_value) == 2)
       {
         final_value = final_value - 1;
       }
@@ -337,6 +303,8 @@ void PIBT::updateCURRENTDIS(const Agents& A)
     a->curr_d = (float) final_value;
   }
 }
+
+
 
 
 void PIBT::setParams(int argc, char* argv[])

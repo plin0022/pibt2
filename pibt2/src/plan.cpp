@@ -53,32 +53,32 @@ int Plan::size() const { return configs.size(); }
 int Plan::getMakespan() const { return size() - 1; }
 
 // original path cost definition
-//int Plan::getPathCost(const int i) const
-//{
-//  const int makespan = getMakespan();
-//  const Node* g = get(makespan, i);
-//  int c = makespan;
-//  while (c > 0 && get(c - 1, i) == g) --c;
-//  return c;
-//}
-
-// modified path cost
 int Plan::getPathCost(const int i) const
 {
   const int makespan = getMakespan();
   const Node* g = get(makespan, i);
   int c = makespan;
-  int c_1 = makespan;
-  while (c > 0)
-  {
-    if ((get(c - 1, i) == g) && (get(c, i) == g))
-      {
-        --c_1;
-      }
-    --c;
-  }
-  return c_1;
+  while (c > 0 && get(c - 1, i) == g) --c;
+  return c;
 }
+
+// modified path cost
+//int Plan::getPathCost(const int i) const
+//{
+//  const int makespan = getMakespan();
+//  const Node* g = get(makespan, i);
+//  int c = makespan;
+//  int c_1 = makespan;
+//  while (c > 0)
+//  {
+//    if ((get(c - 1, i) == g) && (get(c, i) == g))
+//      {
+//        --c_1;
+//      }
+//    --c;
+//  }
+//  return c_1;
+//}
 
 int Plan::getSOC() const
 {

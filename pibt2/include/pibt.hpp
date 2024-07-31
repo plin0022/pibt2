@@ -25,6 +25,7 @@ private:
     Node* g;            // goal
     int elapsed;        // eta
     int init_d;         // initial distance
+    int boss;           // boss_value
     float curr_d;         // curr_d
     float tie_breaker;  // epsilon, tie-breaker
     int sum_of_comp;    // compromises
@@ -53,4 +54,5 @@ public:
   void updateCURRENTDIS(const Agents& A);
   void setParams(int argc, char* argv[]);
   static void printHelp();
+
 };
