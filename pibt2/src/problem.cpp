@@ -112,13 +112,24 @@ MAPF_Instance::MAPF_Instance(const std::string& _instance, const std::string& sc
       max_comp_time = std::stoi(results[1].str());
       continue;
     }
+
+  }
+
+
+
+  // get scenario
+  std::ifstream file_1(scen_filename);
+  std::string line_1;
+  std::smatch results_1;
+
+  while (getline(file_1, line_1)) {
     // read initial/goal nodes
-    if (std::regex_match(line, results, r_sg) && read_scen &&
+    if (std::regex_match(line_1, results_1, r_sg) && read_scen &&
         (int)config_s.size() < num_agents) {
-      int x_s = std::stoi(results[1].str());
-      int y_s = std::stoi(results[2].str());
-      int x_g = std::stoi(results[3].str());
-      int y_g = std::stoi(results[4].str());
+      int x_s = std::stoi(results_1[1].str());
+      int y_s = std::stoi(results_1[2].str());
+      int x_g = std::stoi(results_1[3].str());
+      int y_g = std::stoi(results_1[4].str());
       if (!G->existNode(x_s, y_s)) {
         halt("start node (" + std::to_string(x_s) + ", " + std::to_string(y_s) +
              ") does not exist, invalid scenario");
@@ -134,7 +145,6 @@ MAPF_Instance::MAPF_Instance(const std::string& _instance, const std::string& sc
       config_g.push_back(g);
     }
   }
-
 
 
 

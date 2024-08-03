@@ -26,10 +26,10 @@ void PIBT::run()
   // compare with boss value
   auto compare = [](Agent* a, const Agent* b) {
     if (a->elapsed != b->elapsed) return a->elapsed > b->elapsed;
-    if (a->boss != b->boss) return a->boss > b->boss;
-
-    // use current distance
-    if (a->curr_d != b->curr_d) return a->curr_d < b->curr_d;
+//    if (a->boss != b->boss) return a->boss > b->boss;
+//
+//    // use current distance
+//    if (a->curr_d != b->curr_d) return a->curr_d < b->curr_d;
     return a->tie_breaker > b->tie_breaker;
   };
 
@@ -110,16 +110,6 @@ void PIBT::run()
         funcPIBT(a);
       }
     }
-
-
-    // observing current_comp
-    volatile int curr_sum_of_comp = 0;
-    for (auto a : A)
-    {
-      curr_sum_of_comp = curr_sum_of_comp + a->current_comp;
-    }
-
-
 
 
 
