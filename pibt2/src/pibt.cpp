@@ -17,16 +17,16 @@ void PIBT::run()
     // top layer
     if (a->elapsed != b->elapsed) return a->elapsed > b->elapsed;
 
-
-
     if (a->curr_d != b->curr_d) return a->curr_d < b->curr_d;
-    return a->tie_breaker < b->tie_breaker;
+
+    if (a->init_d != b->init_d) return a->init_d > b->init_d;
+    return a->tie_breaker > b->tie_breaker;
   };
 
   // compare with boss value
   auto compare = [](Agent* a, const Agent* b) {
-    if (a->boss != b->boss) return a->boss > b->boss;
     if (a->elapsed != b->elapsed) return a->elapsed > b->elapsed;
+    if (a->boss != b->boss) return a->boss > b->boss;
 
     // use current distance
     if (a->curr_d != b->curr_d) return a->curr_d < b->curr_d;
@@ -62,29 +62,29 @@ void PIBT::run()
   // main loop
   int boss_id = 0;
   int timestep = 0;
-  volatile int temp_goal_reached = 0;
 
 
   while (true) {
     info(" ", "elapsed:", getSolverElapsedTime(), ", timestep:", timestep);
 
 //    updateCURRENTDIS(A);
-
+//
+//
 //    // update boss
 //    if (timestep == 0)
 //    {
-//      updateCURRENTDIS(A);
 //      std::sort(A.begin(), A.end(), compare_boss);
 //      A[0]->boss = 1;
 //      boss_id = A[0]->id;
 //    }
 //    else
 //    {
-//      bool flag = false;
+//      volatile bool flag = false;
 //      for (auto a : A)
 //      {
 //        if ((a->id == boss_id) && (a->v_now == a->g))
 //        {
+//          a->elapsed = 0;
 //          a->boss = 0;
 //          flag = true;
 //          break;
@@ -92,7 +92,6 @@ void PIBT::run()
 //      }
 //      if (flag)
 //      {
-//        updateCURRENTDIS(A);
 //        std::sort(A.begin(), A.end(), compare_boss);
 //        A[0]->boss = 1;
 //        boss_id = A[0]->id;
@@ -122,7 +121,7 @@ void PIBT::run()
 
 
 
-    volatile int num_goal_reached = 0;
+
 
     // acting
     bool check_goal_cond = true;
@@ -136,13 +135,6 @@ void PIBT::run()
       occupied_now[a->v_next->id] = a;
       // check goal condition
       check_goal_cond &= (a->v_next == a->g);
-
-      // counter for goal reached
-      if (a->v_next == a->g)
-      {
-        num_goal_reached = num_goal_reached + 1;
-      }
-
       // update priority
       a->elapsed = (a->v_next == a->g) ? 0 : a->elapsed + 1;
       // reset params
@@ -150,11 +142,6 @@ void PIBT::run()
       a->v_next = nullptr;
     }
 
-    if (num_goal_reached > temp_goal_reached)
-    {
-      temp_goal_reached = num_goal_reached;
-      updateCURRENTDIS(A);
-    }
 
     // update plan
     solution.add(config);
@@ -267,7 +254,7 @@ void PIBT::updateCURRENTDIS(const Agents& A)
     // get candidates
     Nodes C = a->v_now->neighbor;
     C.push_back(a->v_now);
-//    volatile int current_value = pathDist(a->id, a->v_now);
+
 
     // get dis_vector
     std::vector<int> dis_vector;
@@ -288,15 +275,15 @@ void PIBT::updateCURRENTDIS(const Agents& A)
     {
       if ((pathDist(a->id, c_node) - min_value) == 0)
       {
-        final_value = final_value + 1;
+        final_value = final_value + 3;
       }
       else if ((pathDist(a->id, c_node) - min_value) == 1)
       {
-        final_value = final_value + 0;
+        final_value = final_value + 1;
       }
       else if ((pathDist(a->id, c_node) - min_value) == 2)
       {
-        final_value = final_value - 1;
+        final_value = final_value + 0;
       }
     }
 

@@ -18,6 +18,7 @@ std::unique_ptr<MAPF_Solver> getSolver(const std::string solver_name,
 int main(int argc, char* argv[])
 {
   std::string instance_file = "";
+  std::string scen_file = "";
   std::string output_file = DEFAULT_OUTPUT_FILE;
   std::string solver_name;
   bool verbose = false;
@@ -26,6 +27,7 @@ int main(int argc, char* argv[])
 
   struct option longopts[] = {
       {"instance", required_argument, 0, 'i'},
+      {"scenario", required_argument, 0, 'm'},
       {"output", required_argument, 0, 'o'},
       {"solver", required_argument, 0, 's'},
       {"verbose", no_argument, 0, 'v'},
@@ -42,11 +44,14 @@ int main(int argc, char* argv[])
   // command line args
   int opt, longindex;
   opterr = 0;  // ignore getopt error
-  while ((opt = getopt_long(argc, argv, "i:o:s:vhPT:L", longopts,
+  while ((opt = getopt_long(argc, argv, "i:m:o:s:vhPT:L", longopts,
                             &longindex)) != -1) {
     switch (opt) {
       case 'i':
         instance_file = std::string(optarg);
+        break;
+      case 'm':
+        scen_file = std::string(optarg);
         break;
       case 'o':
         output_file = std::string(optarg);
@@ -81,8 +86,15 @@ int main(int argc, char* argv[])
     return 0;
   }
 
+  if (scen_file.length() == 0) {
+    std::cout << "specify instance file using -m [INSTANCE-FILE], e.g.,"
+              << std::endl;
+    std::cout << "> ./mapf -i ../instance/sample.txt" << std::endl;
+    return 0;
+  }
+
   // set problem
-  auto P = MAPF_Instance(instance_file);
+  auto P = MAPF_Instance(instance_file, scen_file);
 
   // set max computation time (otherwise, use param in instance_file)
   if (max_comp_time != -1) P.setMaxCompTime(max_comp_time);

@@ -44,7 +44,8 @@ void Problem::warn(const std::string& msg) const
 // -------------------------------------------
 // MAPF
 
-MAPF_Instance::MAPF_Instance(const std::string& _instance)
+
+MAPF_Instance::MAPF_Instance(const std::string& _instance, const std::string& scen_filename)
     : Problem(_instance), instance_initialized(true)
 {
   // read instance file
@@ -61,7 +62,7 @@ MAPF_Instance::MAPF_Instance(const std::string& _instance)
   std::regex r_well_formed = std::regex(R"(well_formed=(\d+))");
   std::regex r_max_timestep = std::regex(R"(max_timestep=(\d+))");
   std::regex r_max_comp_time = std::regex(R"(max_comp_time=(\d+))");
-  std::regex r_sg = std::regex(R"((\d+),(\d+),(\d+),(\d+))");
+  std::regex r_sg = std::regex(R"(\d+\t.+\.map\t\d+\t\d+\t(\d+)\t(\d+)\t(\d+)\t(\d+)\t.+)");
 
   bool read_scen = true;
   bool well_formed = false;
@@ -134,6 +135,9 @@ MAPF_Instance::MAPF_Instance(const std::string& _instance)
     }
   }
 
+
+
+
   // set default value not identified params
   if (MT == nullptr) MT = new std::mt19937(DEFAULT_SEED);
   if (max_timestep == 0) max_timestep = DEFAULT_MAX_TIMESTEP;
@@ -157,6 +161,8 @@ MAPF_Instance::MAPF_Instance(const std::string& _instance)
   config_s.resize(num_agents);
   config_g.resize(num_agents);
 }
+
+
 
 MAPF_Instance::MAPF_Instance(MAPF_Instance* P, Config _config_s,
                              Config _config_g, int _max_comp_time,
