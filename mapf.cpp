@@ -1,7 +1,9 @@
 #include <getopt.h>
 
 #include <default_params.hpp>
+#include <fstream>
 #include <hca.hpp>
+#include <iomanip>
 #include <iostream>
 #include <pibt.hpp>
 #include <pibt_plus.hpp>
@@ -185,6 +187,39 @@ int main(int argc, char* argv[])
 
   volatile int abcd = 1111;
 
+  // print out the test results
+
+  // Create an output file stream for the CSV file
+  std::ofstream outfile("output.csv");
+
+  // Check if the file is opened successfully
+  if (!outfile.is_open()) {
+    std::cerr << "Failed to open the file." << std::endl;
+    return 1;
+  }
+
+  // Set precision for floating point numbers
+  outfile << std::fixed << std::setprecision(5);
+
+  // Iterate over the rows of the table
+  for (const auto& row : obj_table) {
+    // Iterate over the elements in each row
+    for (size_t i = 0; i < row.size(); ++i) {
+      // Use std::visit to handle the different types in VarType
+      std::visit([&outfile](auto&& arg) {
+        outfile << arg;
+      }, row[i]);
+      // Add a comma if it's not the last element in the row
+      if (i < row.size() - 1) {
+        outfile << ",";
+      }
+    }
+    // Print a new line after each row
+    outfile << std::endl;
+  }
+
+  // Close the file
+  outfile.close();
 
 
 
