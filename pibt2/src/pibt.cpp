@@ -72,32 +72,32 @@ void PIBT::run()
 //
 //
 //     update boss
-//    if (timestep == 0)
-//    {
-//      std::sort(A.begin(), A.end(), compare_boss);
-//      A[0]->boss = 1;
-//      boss_id = A[0]->id;
-//    }
-//    else
-//    {
-//      volatile bool flag = false;
-//      for (auto a : A)
-//      {
-//        if ((a->id == boss_id) && (a->v_now == a->g))
-//        {
-//          a->elapsed = 0;
-//          a->boss = 0;
-//          flag = true;
-//          break;
-//        }
-//      }
-//      if (flag)
-//      {
-//        std::sort(A.begin(), A.end(), compare_boss);
-//        A[0]->boss = 1;
-//        boss_id = A[0]->id;
-//      }
-//    }
+    if (timestep == 0)
+    {
+      std::sort(A.begin(), A.end(), compare_boss);
+      A[0]->boss = 1;
+      boss_id = A[0]->id;
+    }
+    else
+    {
+      volatile bool flag = false;
+      for (auto a : A)
+      {
+        if ((a->id == boss_id) && (a->v_now == a->g))
+        {
+          a->elapsed = 0;
+          a->boss = 0;
+          flag = true;
+          break;
+        }
+      }
+      if (flag)
+      {
+        std::sort(A.begin(), A.end(), compare_boss);
+        A[0]->boss = 1;
+        boss_id = A[0]->id;
+      }
+    }
 
 
 
@@ -150,9 +150,9 @@ void PIBT::run()
     }
 
     // failed
-//    if (timestep >= max_timestep || overCompTime()) {
-//      break;
-//    }
+    if (timestep >= max_timestep || overCompTime()) {
+      break;
+    }
 
     // failed
     if (timestep >= max_timestep) {
@@ -274,11 +274,11 @@ void PIBT::updateCURRENTDIS(const Agents& A)
       }
       else if ((pathDist(a->id, c_node) - min_value) == 1)
       {
-        final_value = final_value + 1;
+        final_value = final_value + 2;
       }
       else if ((pathDist(a->id, c_node) - min_value) == 2)
       {
-        final_value = final_value + 0;
+        final_value = final_value + 1;
       }
     }
 
