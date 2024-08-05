@@ -97,24 +97,34 @@ int main(int argc, char* argv[])
 
 
   // set up parameters for generating charts
-  int max_num_agents = 200;
   std::string base_path = "../instances/mapf/scen-random/random-32-32-20-random-";
-  std::vector<std::variant<int, double, std::string>> obj_table;
+  using VarType = std::variant<int, float>;
+  std::vector<std::vector<VarType>> obj_table;
 
 
   // objectives
-  int temp_soc = 0;
-  int temp_soc_lb = 0;
-  int temp_makespan = 0;
-  int temp_makespan_lb = 0;
-  int temp_time = 0;
-  bool temp_success_flag = false;
+  volatile float temp_soc = 0;
+  volatile float temp_soc_lb = 0;
+  volatile float temp_makespan = 0;
+  volatile float temp_makespan_lb = 0;
+  volatile float temp_time = 0;
+
+
+  volatile float sum_soc_over_lb = 0;
+  volatile float sum_makespan_over_lb = 0;
+  volatile float sum_time = 0;
+  volatile float sum_success = 0;
 
 
 
-  for (int num_of_agents = 10; num_of_agents < max_num_agents; num_of_agents = num_of_agents + 10)
+  int max_num_agents = 200;
+  for (int num_of_agents = 10; num_of_agents <= max_num_agents; num_of_agents = num_of_agents + 10)
   {
-
+    // initialize parameters
+    sum_soc_over_lb = 0;
+    sum_makespan_over_lb = 0;
+    sum_time = 0;
+    sum_success = 0;
 
 
     for (int scen_num = 1; scen_num <= 25; ++scen_num)
@@ -142,10 +152,38 @@ int main(int argc, char* argv[])
       }
       solver->printResult();
 
+      temp_soc = (float)solver->getSOC();
+      temp_soc_lb = (float)solver->getLowerBoundSOC();
+      temp_makespan = (float)solver->getMakespan();
+      temp_makespan_lb = (float)solver->getLowerBoundMakespan();
+      temp_time = solver->getCompTime();
+
+      if (solver->succeed())
+      {
+        sum_success = sum_success + 1;
+
+        sum_soc_over_lb = sum_soc_over_lb + temp_soc / temp_soc_lb;
+        sum_makespan_over_lb = sum_makespan_over_lb + temp_makespan / temp_makespan_lb;
+        sum_time = sum_time + temp_time;
+      }
+
     }
+
+    std::vector<VarType> temp_list;
+    temp_list.push_back(num_of_agents);
+    temp_list.push_back(sum_success / 25);
+    temp_list.push_back(sum_time / sum_success);
+    temp_list.push_back(sum_soc_over_lb / sum_success);
+    temp_list.push_back(sum_makespan_over_lb / sum_success);
+
+
+
+    obj_table.push_back(temp_list);
+
 
   }
 
+  volatile int abcd = 1111;
 
 
 

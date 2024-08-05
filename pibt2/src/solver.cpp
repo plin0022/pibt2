@@ -114,10 +114,20 @@ void MAPF_Solver::computeLowerBounds()
   }
 }
 
+int MAPF_Solver::getSOC()
+{
+  return solution.getSOC();
+}
+
 int MAPF_Solver::getLowerBoundSOC()
 {
   if (LB_soc == 0) computeLowerBounds();
   return LB_soc;
+}
+
+int MAPF_Solver::getMakespan()
+{
+  return solution.getMakespan();
 }
 
 int MAPF_Solver::getLowerBoundMakespan()

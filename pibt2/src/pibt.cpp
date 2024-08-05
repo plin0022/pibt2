@@ -68,7 +68,7 @@ void PIBT::run()
   while (true) {
     info(" ", "elapsed:", getSolverElapsedTime(), ", timestep:", timestep);
 
-    updateCURRENTDIS(A);
+//    updateCURRENTDIS(A);
 //
 //
 //     update boss

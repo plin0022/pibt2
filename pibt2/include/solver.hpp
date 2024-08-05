@@ -154,6 +154,8 @@ protected:
   // -------------------------------
   // utilities for problem instance
 public:
+  int getSOC();                 // get sum-of-costs
+  int getMakespan();            // get makespan
   int getLowerBoundSOC();       // get trivial lower bound of sum-of-costs
   int getLowerBoundMakespan();  // get trivial lower bound of makespan
 private:
@@ -185,6 +187,9 @@ protected:
   // print
 public:
   void printResult();
+  void passResult(float temp_soc, float temp_soc_lb, float temp_makespan,
+                  float temp_makespan_lb, bool temp_success_flag,
+                  int temp_time);
 
   // -------------------------------
   // utilities for distance
@@ -234,6 +239,7 @@ public:
   virtual ~MAPF_Solver();
 
   MAPF_Instance* getP() { return P; }
+
 };
 
 // ====================================================
