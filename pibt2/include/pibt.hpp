@@ -26,6 +26,7 @@ private:
     int elapsed;        // eta
     int init_d;         // initial distance
     int boss;           // boss_value
+    float boss_tie_breaker;   // randomly chosen boss
     float curr_d;         // curr_d
     float tie_breaker;  // epsilon, tie-breaker
     int sum_of_comp;    // compromises

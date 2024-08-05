@@ -17,19 +17,19 @@ void PIBT::run()
     // top layer
     if (a->elapsed != b->elapsed) return a->elapsed > b->elapsed;
 
-    if (a->curr_d != b->curr_d) return a->curr_d < b->curr_d;
+    // use boss tie-breaker to find boss
+    return a->boss_tie_breaker > b->boss_tie_breaker;
 
-    if (a->init_d != b->init_d) return a->init_d > b->init_d;
-    return a->tie_breaker > b->tie_breaker;
   };
 
   // compare with boss value
   auto compare = [](Agent* a, const Agent* b) {
     if (a->elapsed != b->elapsed) return a->elapsed > b->elapsed;
-//    if (a->boss != b->boss) return a->boss > b->boss;
-//
-//    // use current distance
-//    if (a->curr_d != b->curr_d) return a->curr_d < b->curr_d;
+    if (a->boss != b->boss) return a->boss > b->boss;
+
+    // use current distance
+    if (a->curr_d != b->curr_d) return a->curr_d < b->curr_d;
+
     return a->tie_breaker > b->tie_breaker;
   };
 
@@ -48,6 +48,7 @@ void PIBT::run()
         0,                          // elapsed
         d,                          // dist from s -> g
         0,
+        getRandomFloat(0, 1, MT),  // boss tie-breaker
         0,                         // curr_dist from s-> g
         getRandomFloat(0, 1, MT),// tie-breaker
         0,
@@ -67,10 +68,10 @@ void PIBT::run()
   while (true) {
     info(" ", "elapsed:", getSolverElapsedTime(), ", timestep:", timestep);
 
-//    updateCURRENTDIS(A);
+    updateCURRENTDIS(A);
 //
 //
-//    // update boss
+//     update boss
 //    if (timestep == 0)
 //    {
 //      std::sort(A.begin(), A.end(), compare_boss);
@@ -127,6 +128,10 @@ void PIBT::run()
       check_goal_cond &= (a->v_next == a->g);
       // update priority
       a->elapsed = (a->v_next == a->g) ? 0 : a->elapsed + 1;
+
+      // update boss tie-breaker, so any agent has a chance to be boss
+      a->boss_tie_breaker = getRandomFloat(0, 1, MT);
+
       // reset params
       a->v_now = a->v_next;
       a->v_next = nullptr;

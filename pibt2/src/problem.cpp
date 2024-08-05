@@ -45,7 +45,7 @@ void Problem::warn(const std::string& msg) const
 // MAPF
 
 
-MAPF_Instance::MAPF_Instance(const std::string& _instance, const std::string& scen_filename)
+MAPF_Instance::MAPF_Instance(const std::string& _instance, const std::string& scen_filename, int num_of_agents)
     : Problem(_instance), instance_initialized(true)
 {
   // read instance file
@@ -83,6 +83,7 @@ MAPF_Instance::MAPF_Instance(const std::string& _instance, const std::string& sc
       num_agents = std::stoi(results[1].str());
       continue;
     }
+    num_agents = num_of_agents;
     // set random seed
     if (std::regex_match(line, results, r_seed)) {
       MT = new std::mt19937(std::stoi(results[1].str()));

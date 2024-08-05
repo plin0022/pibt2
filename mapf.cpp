@@ -8,6 +8,7 @@
 #include <problem.hpp>
 #include <push_and_swap.hpp>
 #include <random>
+#include <variant>
 #include <vector>
 
 void printHelp();
@@ -93,33 +94,67 @@ int main(int argc, char* argv[])
     return 0;
   }
 
-  // set problem
-  auto P = MAPF_Instance(instance_file, scen_file);
 
-  // set max computation time (otherwise, use param in instance_file)
-  if (max_comp_time != -1) P.setMaxCompTime(max_comp_time);
 
-  // create scenario
-  if (make_scen) {
-    P.makeScenFile(output_file);
-    return 0;
+  // set up parameters for generating charts
+  int max_num_agents = 200;
+  std::string base_path = "../instances/mapf/scen-random/random-32-32-20-random-";
+  std::vector<std::variant<int, double, std::string>> obj_table;
+
+
+  // objectives
+  int temp_soc = 0;
+  int temp_soc_lb = 0;
+  int temp_makespan = 0;
+  int temp_makespan_lb = 0;
+  int temp_time = 0;
+  bool temp_success_flag = false;
+
+
+
+  for (int num_of_agents = 10; num_of_agents < max_num_agents; num_of_agents = num_of_agents + 10)
+  {
+
+
+
+    for (int scen_num = 1; scen_num <= 25; ++scen_num)
+    {
+      scen_file = base_path + std::to_string(scen_num) + ".scen";
+      // set problem
+      auto P = MAPF_Instance(instance_file, scen_file, num_of_agents);
+
+      // set max computation time (otherwise, use param in instance_file)
+      if (max_comp_time != -1) P.setMaxCompTime(max_comp_time);
+
+      // create scenario
+      if (make_scen) {
+        P.makeScenFile(output_file);
+        return 0;
+      }
+
+      // solve
+      auto solver = getSolver(solver_name, &P, verbose, argc, argv_copy);
+      solver->setLogShort(log_short);
+      solver->solve();
+      if (solver->succeed() && !solver->getSolution().validate(&P)) {
+        std::cout << "error@mapf: invalid results" << std::endl;
+        return 0;
+      }
+      solver->printResult();
+
+    }
+
   }
 
-  // solve
-  auto solver = getSolver(solver_name, &P, verbose, argc, argv_copy);
-  solver->setLogShort(log_short);
-  solver->solve();
-  if (solver->succeed() && !solver->getSolution().validate(&P)) {
-    std::cout << "error@mapf: invalid results" << std::endl;
-    return 0;
-  }
-  solver->printResult();
 
-  // output result
-  solver->makeLog(output_file);
-  if (verbose) {
-    std::cout << "save result as " << output_file << std::endl;
-  }
+
+
+
+//  // output result
+//  solver->makeLog(output_file);
+//  if (verbose) {
+//    std::cout << "save result as " << output_file << std::endl;
+//  }
 
   return 0;
 }
