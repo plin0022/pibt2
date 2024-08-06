@@ -72,32 +72,32 @@ void PIBT::run()
 //
 //
 //     update boss
-    if (timestep == 0)
-    {
-      std::sort(A.begin(), A.end(), compare_boss);
-      A[0]->boss = 1;
-      boss_id = A[0]->id;
-    }
-    else
-    {
-      volatile bool flag = false;
-      for (auto a : A)
-      {
-        if ((a->id == boss_id) && (a->v_now == a->g))
-        {
-          a->elapsed = 0;
-          a->boss = 0;
-          flag = true;
-          break;
-        }
-      }
-      if (flag)
-      {
-        std::sort(A.begin(), A.end(), compare_boss);
-        A[0]->boss = 1;
-        boss_id = A[0]->id;
-      }
-    }
+//    if (timestep == 0)
+//    {
+//      std::sort(A.begin(), A.end(), compare_boss);
+//      A[0]->boss = 1;
+//      boss_id = A[0]->id;
+//    }
+//    else
+//    {
+//      volatile bool flag = false;
+//      for (auto a : A)
+//      {
+//        if ((a->id == boss_id) && (a->v_now == a->g))
+//        {
+//          a->elapsed = 0;
+//          a->boss = 0;
+//          flag = true;
+//          break;
+//        }
+//      }
+//      if (flag)
+//      {
+//        std::sort(A.begin(), A.end(), compare_boss);
+//        A[0]->boss = 1;
+//        boss_id = A[0]->id;
+//      }
+//    }
 
 
 
@@ -197,12 +197,11 @@ bool PIBT::funcPIBT(Agent* ai, Agent* aj)
 
   // find out the shortest distance
   volatile int shortest_dist = pathDist(ai->id, C[0]);
-  volatile int comp = 0;
 
   for (auto u : C) {
     // avoid conflicts
-    if (occupied_next[u->id] != nullptr) continue;
-    if (aj != nullptr && u == aj->v_now) continue;
+    if (occupied_next[u->id] != nullptr) continue;   // avoid vertex conflict
+    if (aj != nullptr && u == aj->v_now) continue;   // avoid swap conflict
 
     // reserve
     occupied_next[u->id] = ai;
@@ -213,20 +212,7 @@ bool PIBT::funcPIBT(Agent* ai, Agent* aj)
       if (!funcPIBT(ak, ai)) continue;  // replanning
     }
 
-
-    // define compromise
-    if (ai->v_now == ai->g)
-    {
-      comp = 2 * (pathDist(ai->id, ai->v_next) - shortest_dist);
-    }
-    else
-    {
-      comp = pathDist(ai->id, ai->v_next) - shortest_dist;
-    }
-
     // success to plan next one step
-    ai->current_comp = comp;
-    ai->sum_of_comp = ai->sum_of_comp + comp;
     return true;
   }
 
@@ -234,11 +220,156 @@ bool PIBT::funcPIBT(Agent* ai, Agent* aj)
   occupied_next[ai->v_now->id] = ai;
   ai->v_next = ai->v_now;
 
-  // define compromise
-  comp = pathDist(ai->id, ai->v_next) - shortest_dist;
-  ai->current_comp = comp;
-  ai->sum_of_comp = ai->sum_of_comp + comp;
   return false;
+}
+
+// evaluate dynamic obstacles
+std::array<int, 3> PIBT::flexEvaluation(std::array<int, 3> flex_value,
+                                        Agent* ai, Agent* aj)
+{
+  // compare two nodes
+  auto compare = [&](Node* const v, Node* const u) {
+    int d_v = pathDist(ai->id, v);
+    int d_u = pathDist(ai->id, u);
+    if (d_v != d_u) return d_v < d_u;
+    // tie breaker
+    if (occupied_now[v->id] != nullptr && occupied_now[u->id] == nullptr)
+      return false;
+    if (occupied_now[v->id] == nullptr && occupied_now[u->id] != nullptr)
+      return true;
+    return false;
+  };
+
+  // get candidates
+  Nodes C = ai->v_now->neighbor;
+  C.push_back(ai->v_now);
+  // randomize
+  std::shuffle(C.begin(), C.end(), *MT);
+  // sort
+  std::sort(C.begin(), C.end(), compare);
+
+  // find out the shortest distance
+  volatile int shortest_dist = pathDist(ai->id, C[0]);
+  volatile int final_value = 0;
+  volatile float final_flex_value = 0;
+  volatile float temp_value = 0;
+  std::array<int, 3> flex_array = {0, 0, 0};
+
+  // always assume the current planner has the highest priority
+  if (aj == nullptr)
+  {
+    for (auto u : C) {
+      // check if there is someone on the way
+      auto ak = occupied_now[u->id];
+
+      // someone is on the way (dynamic part)
+      if (ak != nullptr)
+      {
+        // reserve
+        occupied_next[u->id] = ai;
+        ai->v_next = u;
+
+        flex_array = flexEvaluation(flex_array, ak, ai);
+
+        // cancel the reservation
+        occupied_next[u->id] = nullptr;
+        ai->v_next = nullptr;
+
+        if (flex_array[2] == 0) continue;
+
+        if ((pathDist(ai->id, u) - shortest_dist) == 0)
+        {
+          temp_value = 3;
+        }
+        else if ((pathDist(ai->id, u) - shortest_dist) == 1)
+        {
+          temp_value = 2;
+        }
+        else if ((pathDist(ai->id, u) - shortest_dist) == 2)
+        {
+          temp_value = 1;
+        }
+
+        final_flex_value = final_flex_value +
+                           (temp_value +(float)flex_array[0]) /
+                               (1 + (float)flex_array[1]);
+      }
+
+      // no one is on the way (static part)
+      else
+      {
+        if ((pathDist(ai->id, u) - shortest_dist) == 0)
+        {
+          final_flex_value = final_flex_value + 3;
+        }
+        else if ((pathDist(ai->id, u) - shortest_dist) == 1)
+        {
+          final_flex_value = final_flex_value + 2;
+        }
+        else if ((pathDist(ai->id, u) - shortest_dist) == 2)
+        {
+          final_flex_value = final_flex_value + 1;
+        }
+      }
+
+    }
+
+    
+    return flex_array;
+  }
+
+  // in the priority inheritance chain
+  else
+  {
+    for (auto u : C) {
+      // avoid conflicts
+      if (occupied_next[u->id] != nullptr) continue;   // avoid vertex conflict
+      if (aj != nullptr && u == aj->v_now) continue;   // avoid swap conflict
+
+      auto ak = occupied_now[u->id];
+      // someone is on the way
+      if (ak != nullptr && ak->v_next == nullptr)
+      {
+        // reserve
+        occupied_next[u->id] = ai;
+        ai->v_next = u;
+
+        flex_array = flexEvaluation(flex_value, ak, ai);
+
+        // cancel the reservation
+        occupied_next[u->id] = nullptr;
+        ai->v_next = nullptr;
+
+        if (flex_array[2] == 0) continue;
+
+      }
+
+      // no one is on the way
+      if ((pathDist(ai->id, u) - shortest_dist) == 0)
+      {
+        flex_value[0] = flex_value[0] + 3;
+      }
+      else if ((pathDist(ai->id, u) - shortest_dist) == 1)
+      {
+        flex_value[0] = flex_value[0] + 2;
+      }
+      else if ((pathDist(ai->id, u) - shortest_dist) == 2)
+      {
+        flex_value[0] = flex_value[0] + 1;
+      }
+
+      // success to secure node
+      flex_value[1] = flex_value[1] + 1;
+      flex_value[2] = 1;
+      return flex_value;
+
+    }
+
+    // fail to secure node
+    flex_value[1] = flex_value[1] + 1;   // increment counter
+    flex_value[2] = 0;                   // fail to secure node
+    return flex_value;
+  }
 }
 
 void PIBT::updateCURRENTDIS(const Agents& A)
