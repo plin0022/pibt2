@@ -27,13 +27,11 @@ void PIBT::run()
     if (a->elapsed != b->elapsed) return a->elapsed > b->elapsed;
     if (a->boss != b->boss) return a->boss > b->boss;
 
-//    // use flexibility
-//    if (a->flex != b->flex) return a->flex < b->flex;
-//
+    // use flexibility
+    if (a->flex != b->flex) return a->flex < b->flex;
+
 //    if (a->curr_d != b->curr_d) return a->curr_d > b->curr_d;
 
-    // use flex * curr_d
-    return (a->flex * a->curr_d + a->tie_breaker) < (b->flex * b->curr_d + b->tie_breaker);
 
     return a->tie_breaker > b->tie_breaker;
   };
@@ -78,7 +76,7 @@ void PIBT::run()
 //    random_number = getRandomFloat(0, 1, MT);
 //
 //    if (random_number < 0.3) updateCURRENTDIS(A);
-    updateCURRENTDIS(A);
+//    updateCURRENTDIS(A);
 
 //
 //     update boss
@@ -191,7 +189,13 @@ bool PIBT::funcPIBT(Agent* ai, Agent* aj)
   auto compare = [&](Node* const v, Node* const u) {
     int d_v = pathDist(ai->id, v);
     int d_u = pathDist(ai->id, u);
+    int flex_v = evalFlex(v, ai);
+    int flex_u = evalFlex(u, ai);
+
     if (d_v != d_u) return d_v < d_u;
+
+    if (flex_v != flex_u) return flex_v > flex_u;
+
     // tie breaker
     if (occupied_now[v->id] != nullptr && occupied_now[u->id] == nullptr)
       return false;
@@ -240,6 +244,53 @@ bool PIBT::funcPIBT(Agent* ai, Agent* aj)
   return false;
 }
 
+// evaluate flexibility for a node to an agent
+int PIBT::evalFlex(Node* a_node, Agent* a)
+{
+  auto compare_node = [&](Node* const v, Node* const u) {
+    int d_v = pathDist(a->id, v);
+    int d_u = pathDist(a->id, u);
+
+    if (d_v != d_u) return d_v < d_u;
+
+    return false;
+  };
+
+  Nodes C = a_node->neighbor;
+  C.push_back(a_node);
+
+
+  std::sort(C.begin(), C.end(), compare_node);
+
+  volatile int min_dis = pathDist(a->id, C[0]);
+  volatile int final_value = 0;
+  int current_dis = 0;
+
+
+  for (auto v : C)
+  {
+    // give zero mark if occupied by another agent in next step
+    if (occupied_next[v->id] != nullptr) continue;
+
+    current_dis = pathDist(a->id, v);
+
+    if ((current_dis - min_dis) == 0)
+    {
+      final_value = final_value + 2;
+    }
+    else if ((current_dis - min_dis) == 1)
+    {
+      final_value = final_value + 1;
+    }
+    else if ((current_dis - min_dis) == 2)
+    {
+      final_value = final_value + 0;
+    }
+  }
+
+  return final_value;
+
+}
 
 void PIBT::updateCURRENTDIS(const Agents& A)
 {

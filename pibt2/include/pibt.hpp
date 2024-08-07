@@ -61,4 +61,5 @@ public:
   void setParams(int argc, char* argv[]);
   static void printHelp();
 
+  int evalFlex(Node* a_node, Agent* a);
 };
