@@ -48,9 +48,6 @@ private:
   // result of priority inheritance: true -> valid, false -> invalid
   bool funcPIBT(Agent* ai, Agent* aj = nullptr);
 
-  // simulate PIBT for evaluating dynamic obstacles
-  std::array<int, 3> flexEvaluation(std::array<int, 3> flex_value,
-                                    Agent* ai, Agent* aj = nullptr);
 
   // main
   void run();
