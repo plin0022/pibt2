@@ -30,7 +30,7 @@ void PIBT::run()
     // use flexibility
     if (a->flex != b->flex) return a->flex < b->flex;
 
-//    if (a->curr_d != b->curr_d) return a->curr_d > b->curr_d;
+    if (a->curr_d != b->curr_d) return a->curr_d > b->curr_d;
 
 
     return a->tie_breaker > b->tie_breaker;
