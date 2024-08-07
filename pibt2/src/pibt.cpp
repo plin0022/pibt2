@@ -68,7 +68,12 @@ void PIBT::run()
   while (true) {
     info(" ", "elapsed:", getSolverElapsedTime(), ", timestep:", timestep);
 
-    updateCURRENTDIS(A);
+    std::array<int, 3> flex_array = {0, 0, 0};
+    for (auto a : A) {
+      flexEvaluation(flex_array, a, nullptr);
+    }
+
+//    updateCURRENTDIS(A);
 //
 //
 //     update boss
@@ -250,7 +255,6 @@ std::array<int, 3> PIBT::flexEvaluation(std::array<int, 3> flex_value,
 
   // find out the shortest distance
   volatile int shortest_dist = pathDist(ai->id, C[0]);
-  volatile int final_value = 0;
   volatile float final_flex_value = 0;
   volatile float temp_value = 0;
   std::array<int, 3> flex_array = {0, 0, 0};
@@ -259,16 +263,17 @@ std::array<int, 3> PIBT::flexEvaluation(std::array<int, 3> flex_value,
   if (aj == nullptr)
   {
     for (auto u : C) {
+      // reserve
+      occupied_next[u->id] = ai;
+      ai->v_next = u;
+
       // check if there is someone on the way
       auto ak = occupied_now[u->id];
+      volatile Agent* temp_a = ai;
 
       // someone is on the way (dynamic part)
-      if (ak != nullptr)
+      if (ak != nullptr && ak->v_next == nullptr)
       {
-        // reserve
-        occupied_next[u->id] = ai;
-        ai->v_next = u;
-
         flex_array = flexEvaluation(flex_array, ak, ai);
 
         // cancel the reservation
@@ -312,9 +317,15 @@ std::array<int, 3> PIBT::flexEvaluation(std::array<int, 3> flex_value,
         }
       }
 
+      // cancel the reservation
+      occupied_next[u->id] = nullptr;
+      ai->v_next = nullptr;
     }
 
-    
+    flex_array[0] = flex_array[0];
+    final_flex_value = final_flex_value + 0;
+    volatile int breakdown_value = 0;
+    ai->curr_d = final_flex_value;
     return flex_array;
   }
 
@@ -326,14 +337,15 @@ std::array<int, 3> PIBT::flexEvaluation(std::array<int, 3> flex_value,
       if (occupied_next[u->id] != nullptr) continue;   // avoid vertex conflict
       if (aj != nullptr && u == aj->v_now) continue;   // avoid swap conflict
 
+      // reserve
+      occupied_next[u->id] = ai;
+      ai->v_next = u;
+
       auto ak = occupied_now[u->id];
+
       // someone is on the way
       if (ak != nullptr && ak->v_next == nullptr)
       {
-        // reserve
-        occupied_next[u->id] = ai;
-        ai->v_next = u;
-
         flex_array = flexEvaluation(flex_value, ak, ai);
 
         // cancel the reservation
@@ -357,6 +369,10 @@ std::array<int, 3> PIBT::flexEvaluation(std::array<int, 3> flex_value,
       {
         flex_value[0] = flex_value[0] + 1;
       }
+
+      // cancel the reservation
+      occupied_next[u->id] = nullptr;
+      ai->v_next = nullptr;
 
       // success to secure node
       flex_value[1] = flex_value[1] + 1;
