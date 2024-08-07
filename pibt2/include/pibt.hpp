@@ -27,7 +27,8 @@ private:
     int init_d;         // initial distance
     int boss;           // boss_value
     float boss_tie_breaker;   // randomly chosen boss
-    float curr_d;         // curr_d
+    int curr_d;         // current distance to goal
+    int flex;    // flexibility of current position
     float tie_breaker;  // epsilon, tie-breaker
     int sum_of_comp;    // compromises
     int current_comp;   // current compromises used for comparing plans

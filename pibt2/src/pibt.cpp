@@ -27,8 +27,13 @@ void PIBT::run()
     if (a->elapsed != b->elapsed) return a->elapsed > b->elapsed;
     if (a->boss != b->boss) return a->boss > b->boss;
 
-    // use current distance
-    if (a->curr_d != b->curr_d) return a->curr_d < b->curr_d;
+//    // use flexibility
+//    if (a->flex != b->flex) return a->flex < b->flex;
+//
+//    if (a->curr_d != b->curr_d) return a->curr_d > b->curr_d;
+
+    // use flex * curr_d
+    return (a->flex * a->curr_d + a->tie_breaker) < (b->flex * b->curr_d + b->tie_breaker);
 
     return a->tie_breaker > b->tie_breaker;
   };
@@ -49,7 +54,8 @@ void PIBT::run()
         d,                          // dist from s -> g
         0,
         getRandomFloat(0, 1, MT),  // boss tie-breaker
-        0,                         // curr_dist from s-> g
+        0,                         // curr_dist from current-> g
+        0,                           // flexibility
         getRandomFloat(0, 1, MT),// tie-breaker
         0,
         0
@@ -63,14 +69,17 @@ void PIBT::run()
   // main loop
   int boss_id = 0;
   int timestep = 0;
+  float random_number = 0;
 
 
   while (true) {
     info(" ", "elapsed:", getSolverElapsedTime(), ", timestep:", timestep);
-    
 
-//    updateCURRENTDIS(A);
+//    random_number = getRandomFloat(0, 1, MT);
 //
+//    if (random_number < 0.3) updateCURRENTDIS(A);
+    updateCURRENTDIS(A);
+
 //
 //     update boss
 //    if (timestep == 0)
@@ -136,6 +145,9 @@ void PIBT::run()
       // reset params
       a->v_now = a->v_next;
       a->v_next = nullptr;
+
+      // update current distance
+      a->curr_d = pathDist(a->id, a->v_now);
     }
 
 
@@ -188,6 +200,7 @@ bool PIBT::funcPIBT(Agent* ai, Agent* aj)
     return false;
   };
 
+
   // get candidates
   Nodes C = ai->v_now->neighbor;
   C.push_back(ai->v_now);
@@ -195,6 +208,9 @@ bool PIBT::funcPIBT(Agent* ai, Agent* aj)
   std::shuffle(C.begin(), C.end(), *MT);
   // sort
   std::sort(C.begin(), C.end(), compare);
+
+
+
 
   // find out the shortest distance
   volatile int shortest_dist = pathDist(ai->id, C[0]);
@@ -254,19 +270,19 @@ void PIBT::updateCURRENTDIS(const Agents& A)
     {
       if ((pathDist(a->id, c_node) - min_value) == 0)
       {
-        final_value = final_value + 3;
+        final_value = final_value + 2;
       }
       else if ((pathDist(a->id, c_node) - min_value) == 1)
       {
-        final_value = final_value + 2;
+        final_value = final_value + 1;
       }
       else if ((pathDist(a->id, c_node) - min_value) == 2)
       {
-        final_value = final_value + 1;
+        final_value = final_value + 0;
       }
     }
 
-    a->curr_d = (float) final_value;
+    a->flex = final_value;
   }
 }
 

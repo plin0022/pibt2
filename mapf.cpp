@@ -188,7 +188,6 @@ int main(int argc, char* argv[])
 
   }
 
-  volatile int abcd = 1111;
 
   // print out the test results
 
