@@ -17,6 +17,7 @@ void PIBT::run()
     // top layer
     if (a->elapsed != b->elapsed) return a->elapsed > b->elapsed;
 
+    if (a->curr_d != b->curr_d) return a->curr_d < b->curr_d;
     // use boss tie-breaker to find boss
     return a->boss_tie_breaker > b->boss_tie_breaker;
 
@@ -28,9 +29,9 @@ void PIBT::run()
     if (a->boss != b->boss) return a->boss > b->boss;
 
     // use flexibility
-    if (a->flex != b->flex) return a->flex < b->flex;
+//    if (a->flex != b->flex) return a->flex < b->flex;
 
-    if (a->curr_d != b->curr_d) return a->curr_d > b->curr_d;
+//    if (a->curr_d != b->curr_d) return a->curr_d < b->curr_d;
 
 
     return a->tie_breaker > b->tie_breaker;
@@ -58,6 +59,7 @@ void PIBT::run()
         0,
         0
     };
+    a->curr_d = pathDist(a->id, a->v_now);
     A.push_back(a);
     occupied_now[s->id] = a;
   }
@@ -68,6 +70,8 @@ void PIBT::run()
   int boss_id = 0;
   int timestep = 0;
   float random_number = 0;
+
+
 
 
   while (true) {
@@ -319,6 +323,8 @@ void PIBT::updateCURRENTDIS(const Agents& A)
     volatile int final_value = 0;
     for (auto c_node : C)
     {
+      if (occupied_next[c_node->id] != nullptr) continue;
+
       if ((pathDist(a->id, c_node) - min_value) == 0)
       {
         final_value = final_value + 2;

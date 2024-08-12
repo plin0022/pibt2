@@ -99,9 +99,11 @@ int main(int argc, char* argv[])
 
 
   // set up parameters for generating charts
-  std::string base_path = "../instances/mapf/scen-random/random-32-32-20-random-";
+//  std::string base_path = "../instances/mapf/scen-random/random-32-32-20-random-";
 //  std::string base_path = "../instances/mapf/scen-random_1/ost003d-random-";
 //  std::string base_path = "../instances/mapf/scen-random_2/random-64-64-20-random-";
+//  std::string base_path = "../instances/mapf/scen-random_warehouse-10-20-10-2-2/warehouse-10-20-10-2-2-random-";
+  std::string base_path = "../instances/mapf/scen-random_warehouse-20-40-10-2-2/warehouse-20-40-10-2-2-random-";
 
   using VarType = std::variant<int, float>;
   std::vector<std::vector<VarType>> obj_table;
@@ -122,7 +124,7 @@ int main(int argc, char* argv[])
 
 
 
-  int max_num_agents = 200;
+  int max_num_agents = 1000;
   for (int num_of_agents = 10; num_of_agents <= max_num_agents; num_of_agents = num_of_agents + 10)
   {
     // initialize parameters
