@@ -48,6 +48,7 @@ if __name__ == '__main__':
     result_file = "local/result.txt"
 
     command = os.path.join("..", "build", "mapd")
+
     output_dir = os.path.join("..", "..", "data", get_date_str())
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)

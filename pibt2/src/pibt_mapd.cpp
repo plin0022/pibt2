@@ -242,3 +242,54 @@ bool PIBT_MAPD::funcPIBT(Agent* ai, Agent* aj)
 }
 
 void PIBT_MAPD::printHelp() { printHelpWithoutOption(SOLVER_NAME); }
+
+
+
+// evaluate flexibility for a node to an agent
+int PIBT_MAPD::evalFlex(Node* a_node, Agent* a)
+{
+  auto compare_node = [&](Node* const v, Node* const u) {
+    int d_v = pathDist(v, a->g);
+    int d_u = pathDist(u, a->g);
+
+
+    if (d_v != d_u) return d_v < d_u;
+
+    return false;
+  };
+
+  Nodes C = a_node->neighbor;
+  C.push_back(a_node);
+
+
+  std::sort(C.begin(), C.end(), compare_node);
+
+  volatile int min_dis = pathDist(C[0], a->g);
+  volatile int final_value = 0;
+  int current_dis = 0;
+
+
+  for (auto v : C)
+  {
+    // give zero mark if occupied by another agent in next step
+    if (occupied_next[v->id] != nullptr) continue;
+
+    current_dis = pathDist(v, a->g);
+
+    if ((current_dis - min_dis) == 0)
+    {
+      final_value = final_value + 2;
+    }
+    else if ((current_dis - min_dis) == 1)
+    {
+      final_value = final_value + 1;
+    }
+    else if ((current_dis - min_dis) == 2)
+    {
+      final_value = final_value + 0;
+    }
+  }
+
+  return final_value;
+
+}

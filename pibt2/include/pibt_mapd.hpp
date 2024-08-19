@@ -36,4 +36,5 @@ public:
   ~PIBT_MAPD() {}
 
   static void printHelp();
+  int evalFlex(Node* a_node, Agent* a);
 };
