@@ -92,6 +92,7 @@ void MAPF_Solver::exec()
   if (distance_table_p == nullptr) {
     info("  pre-processing, create distance table by BFS");
     createDistanceTable();
+    createFlexTable();
     preprocessing_comp_time = getSolverElapsedTime();
     info("  done, elapsed: ", preprocessing_comp_time);
   }
@@ -296,6 +297,55 @@ void MAPF_Solver::createDistanceTable()
     }
   }
 }
+
+
+// -------------------------------
+// flexibility
+// -------------------------------
+void MAPF_Solver::createFlexTable()
+{
+  Nodes map_node = P->getG()->getV();
+  Nodes temp_neigh_nodes;
+  volatile int curr_dist = 0;
+
+  for (int i = 0; i < P->getNum(); ++i) {
+    std::queue<Node*> OPEN;
+    std::vector<Node*> CLOSED;
+
+    // breadth first search to iterate through all nodes and calculate the flexibility
+    for (Node* a_node : map_node)
+    {
+      OPEN.push(a_node);
+
+      while (!OPEN.empty()) {
+        Node* curr_node = OPEN.front();
+        OPEN.pop();
+        temp_neigh_nodes = curr_node->neighbor;
+        curr_dist = pathDist(i, curr_node);
+
+        for (Node* a_neigh_node : temp_neigh_nodes)
+        {
+          if (curr_dist - pathDist(i, a_neigh_node) == 1) OPEN.push(a_neigh_node);
+        }
+
+        CLOSED.push_back(curr_node);
+      }
+
+      volatile int yyy = 123;
+      // find out how many nodes expanded
+      flex_table[i][a_node->id] = CLOSED.size() - 1;
+      volatile int xxx = 0;
+
+      // clear CLOSED
+      CLOSED.clear();
+    }
+  }
+}
+
+
+
+
+
 
 // -------------------------------
 // utilities for getting path

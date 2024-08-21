@@ -143,6 +143,8 @@ protected:
   DistanceTable* distance_table_p;  // pointer, used in nested solvers
   int preprocessing_comp_time;      // computation time
 
+  DistanceTable flex_table;         // flexibility table
+
   // -------------------------------
   // main
 private:
@@ -240,6 +242,7 @@ public:
 
   MAPF_Instance* getP() { return P; }
 
+  void createFlexTable();
 };
 
 // ====================================================

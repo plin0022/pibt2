@@ -36,7 +36,8 @@ def read_result(filename):
 
 MAX_TIMESTEP = 3000
 MAX_COMP_TIME = 30000
-SOLVERS = [ "PIBT", "TP", ]
+# SOLVERS = [ "PIBT", "TP", ]
+SOLVERS = [ "PIBT"]
 MAP_NAMES = [ "warehouse.map", ]
 TASK_FREQS = [ 0.2, 0.5, 1, 2, 5, 10 ]
 NUM_AGENTS = [ 10, 20, 30, 40, 50 ]
