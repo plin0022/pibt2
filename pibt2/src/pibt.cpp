@@ -43,7 +43,7 @@ void PIBT::run()
   for (int i = 0; i < P->getNum(); ++i) {
     Node* s = P->getStart(i);
     Node* g = P->getGoal(i);
-    int d = disable_dist_init ? 0 : pathDist(i);
+    int d = disable_dist_init ? 0 : nodeDist(g, s);
     Agent* a = new Agent{
         i,                          // id
         s,                          // current location
@@ -59,7 +59,7 @@ void PIBT::run()
         0,
         0
     };
-    a->curr_d = pathDist(a->id, a->v_now);
+    a->curr_d = nodeDist(g, a->v_now);
     A.push_back(a);
     occupied_now[s->id] = a;
   }
@@ -149,7 +149,7 @@ void PIBT::run()
       a->v_next = nullptr;
 
       // update current distance
-      a->curr_d = pathDist(a->id, a->v_now);
+      a->curr_d = nodeDist(a->g, a->v_now);
     }
 
 
@@ -164,24 +164,16 @@ void PIBT::run()
       break;
     }
 
-    // failed
-    if (timestep >= max_timestep || overCompTime()) {
-      break;
-    }
+//    // failed
+//    if (timestep >= max_timestep || overCompTime()) {
+//      break;
+//    }
 
     // failed
     if (timestep >= max_timestep) {
       break;
     }
   }
-
-  // sum of compromises of all agents
-  volatile int all_sum_of_comp = 0;
-  for (auto a : A)
-  {
-    all_sum_of_comp = all_sum_of_comp + a->sum_of_comp;
-  }
-
 
   // memory clear
   for (auto a : A) delete a;
@@ -191,10 +183,10 @@ bool PIBT::funcPIBT(Agent* ai, Agent* aj)
 {
   // compare two nodes
   auto compare = [&](Node* const v, Node* const u) {
-    int d_v = pathDist(ai->id, v);
-    int d_u = pathDist(ai->id, u);
-    int flex_v = flex_table[ai->id][v->id];
-    int flex_u = flex_table[ai->id][u->id];
+    int d_v = nodeDist(ai->g, v);
+    int d_u = nodeDist(ai->g, u);
+    int flex_v = flex_table[ai->g->id][v->id];
+    int flex_u = flex_table[ai->g->id][u->id];
 
     if (d_v != d_u) return d_v < d_u;
 
@@ -217,11 +209,6 @@ bool PIBT::funcPIBT(Agent* ai, Agent* aj)
   // sort
   std::sort(C.begin(), C.end(), compare);
 
-
-
-
-  // find out the shortest distance
-  volatile int shortest_dist = pathDist(ai->id, C[0]);
 
   for (auto u : C) {
     // avoid conflicts
@@ -247,102 +234,6 @@ bool PIBT::funcPIBT(Agent* ai, Agent* aj)
 
   return false;
 }
-
-// evaluate flexibility for a node to an agent
-int PIBT::evalFlex(Node* a_node, Agent* a)
-{
-  auto compare_node = [&](Node* const v, Node* const u) {
-    int d_v = pathDist(a->id, v);
-    int d_u = pathDist(a->id, u);
-
-    if (d_v != d_u) return d_v < d_u;
-
-    return false;
-  };
-
-  Nodes C = a_node->neighbor;
-  C.push_back(a_node);
-
-
-  std::sort(C.begin(), C.end(), compare_node);
-
-  volatile int min_dis = pathDist(a->id, C[0]);
-  volatile int final_value = 0;
-  int current_dis = 0;
-
-
-  for (auto v : C)
-  {
-    // give zero mark if occupied by another agent in next step
-    if (occupied_next[v->id] != nullptr) continue;
-
-    current_dis = pathDist(a->id, v);
-
-    if ((current_dis - min_dis) == 0)
-    {
-      final_value = final_value + 2;
-    }
-    else if ((current_dis - min_dis) == 1)
-    {
-      final_value = final_value + 1;
-    }
-    else if ((current_dis - min_dis) == 2)
-    {
-      final_value = final_value + 0;
-    }
-  }
-
-  return final_value;
-
-}
-
-void PIBT::updateCURRENTDIS(const Agents& A)
-{
-  // update current distance
-  for (auto a : A)
-  {
-    // get candidates
-    Nodes C = a->v_now->neighbor;
-    C.push_back(a->v_now);
-
-
-    // get dis_vector
-    std::vector<int> dis_vector;
-    for (auto c_node : C)
-    {
-      dis_vector.push_back(pathDist(a->id, c_node));
-    }
-
-    // Find the iterator to the minimum element
-    auto min_it = std::min_element(dis_vector.begin(), dis_vector.end());
-
-    // Dereference the iterator to get the minimum value
-    volatile int min_value = *min_it;
-
-    // evaluate the current position potential for deciding priority of the agent
-    volatile int final_value = 0;
-    for (auto c_node : C)
-    {
-      if (occupied_next[c_node->id] != nullptr) continue;
-
-      if ((pathDist(a->id, c_node) - min_value) == 0)
-      {
-        final_value = final_value + 2;
-      }
-      else if ((pathDist(a->id, c_node) - min_value) == 1)
-      {
-        final_value = final_value + 1;
-      }
-      else if ((pathDist(a->id, c_node) - min_value) == 2)
-      {
-        final_value = final_value + 0;
-      }
-    }
-
-    a->flex = final_value;
-  }
-}
-
 
 
 

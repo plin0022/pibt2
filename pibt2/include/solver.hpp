@@ -206,6 +206,14 @@ public:
     distance_table_p = p;
   }  // used in nested solvers
 
+
+  void setDistanceTable(const DistanceTable& new_table) {
+    distance_table = new_table;
+  }
+
+  void setFlexTable(const DistanceTable& new_table) {
+    flex_table = new_table;
+  }
   // -------------------------------
   // utilities for getting path
 public:
@@ -243,7 +251,14 @@ public:
   MAPF_Instance* getP() { return P; }
 
   void createFlexTable();
-  int evalFlex(Node* a_node, int a_id) const;
+  int evalFlex(Node* a_node, Node* g_node) const;
+  int nodeDist(Node* const s, Node* const g) const;
+  const DistanceTable& getDistanceTable() const {
+    return distance_table;
+  }
+  const DistanceTable& getFlexTable() const {
+    return flex_table;
+  }
 };
 
 // ====================================================

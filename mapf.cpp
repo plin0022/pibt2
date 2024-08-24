@@ -125,6 +125,16 @@ int main(int argc, char* argv[])
   volatile float sum_success = 0;
 
 
+  // initialize temporary map for preprocessing flex_table
+  auto t_scen_file = base_path + std::to_string(1) + ".scen";
+  auto t_P = MAPF_Instance(instance_file, t_scen_file, 10);
+  auto t_solver = getSolver(solver_name, &t_P, verbose, argc, argv_copy);
+  t_solver->createFlexTable();
+  auto t_dist_table = t_solver->getDistanceTable();
+  auto t_flex_table = t_solver->getFlexTable();
+
+
+
 
   int max_num_agents = 200;
   for (int num_of_agents = 10; num_of_agents <= max_num_agents; num_of_agents = num_of_agents + 10)
@@ -153,6 +163,8 @@ int main(int argc, char* argv[])
 
       // solve
       auto solver = getSolver(solver_name, &P, verbose, argc, argv_copy);
+      solver->setDistanceTable(t_dist_table);
+      solver->setFlexTable(t_flex_table);
       solver->setLogShort(log_short);
       solver->solve();
       if (solver->succeed() && !solver->getSolution().validate(&P)) {
@@ -257,6 +269,7 @@ std::unique_ptr<MAPF_Solver> getSolver(const std::string solver_name,
               << std::endl;
     solver = std::make_unique<PIBT>(P);
   }
+
   solver->setParams(argc, argv);
   solver->setVerbose(verbose);
   return solver;

@@ -75,11 +75,12 @@ MAPF_Solver::MAPF_Solver(MAPF_Instance* _P)
       P(_P),
       LB_soc(0),
       LB_makespan(0),
-      distance_table(_P->getNum(),
+      distance_table(G->getNodesSize(),
                      std::vector<int>(G->getNodesSize(), max_timestep)),
       distance_table_p(nullptr)
 {
 }
+
 
 MAPF_Solver::~MAPF_Solver() {}
 
@@ -91,9 +92,8 @@ void MAPF_Solver::exec()
   // create distance table
   if (distance_table_p == nullptr) {
     info("  pre-processing, create distance table by BFS");
-    createDistanceTable();
+//    createDistanceTable();
     info("  pre-processing, create flexibility table by BFS");
-    createFlexTable();
     preprocessing_comp_time = getSolverElapsedTime();
     info("  done, elapsed: ", preprocessing_comp_time);
   }
@@ -264,6 +264,12 @@ void MAPF_Solver::makeLogSolution(std::ofstream& log)
 // -------------------------------
 // distance
 // -------------------------------
+int MAPF_Solver::nodeDist(Node* const s, Node* const g) const
+{
+  return distance_table[s->id][g->id];  // s->g_node, g->current_node
+}
+
+
 int MAPF_Solver::pathDist(const int i, Node* const s) const
 {
   if (distance_table_p != nullptr) {
@@ -274,29 +280,53 @@ int MAPF_Solver::pathDist(const int i, Node* const s) const
 
 int MAPF_Solver::pathDist(const int i) const
 {
-  return pathDist(i, P->getStart(i));
+  return nodeDist(P->getGoal(i), P->getStart(i));
 }
 
 void MAPF_Solver::createDistanceTable()
 {
-  for (int i = 0; i < P->getNum(); ++i) {
-    // breadth first search
-    std::queue<Node*> OPEN;
-    Node* n = P->getGoal(i);
-    OPEN.push(n);
-    distance_table[i][n->id] = 0;
-    while (!OPEN.empty()) {
-      n = OPEN.front();
-      OPEN.pop();
-      const int d_n = distance_table[i][n->id];
-      for (auto m : n->neighbor) {
-        const int d_m = distance_table[i][m->id];
-        if (d_n + 1 >= d_m) continue;
-        distance_table[i][m->id] = d_n + 1;
-        OPEN.push(m);
+  const int nodes_num = G->getNodesSize();
+  auto all_nodes = G->get_all_V();
+
+
+
+  for (int i = 0; i < nodes_num; ++i) {
+    auto u = all_nodes[i];
+    if (u == nullptr) continue;
+    for (auto v : u->neighbor) {
+      distance_table[i][v->id] = 1;
+    }
+    distance_table[i][i] = 0;
+  }
+
+  // main loop
+  for (int k = 0; k < nodes_num; ++k) {
+    for (int i = 0; i < nodes_num; ++i) {
+      for (int j = 0; j < nodes_num; ++j) {
+        distance_table[i][j] = std::min(
+            distance_table[i][j], distance_table[i][k] + distance_table[k][j]);
       }
     }
   }
+//  for (int i = 0; i < P->getNum(); ++i) {
+//    // breadth first search
+//    std::queue<Node*> OPEN;
+//    Node* n = P->getGoal(i);
+//    OPEN.push(n);
+//    distance_table[i][n->id] = 0;
+//    while (!OPEN.empty()) {
+//      n = OPEN.front();
+//      OPEN.pop();
+//      const int d_n = distance_table[i][n->id];
+//      for (auto m : n->neighbor) {
+//        const int d_m = distance_table[i][m->id];
+//        if (d_n + 1 >= d_m) continue;
+//        distance_table[i][m->id] = d_n + 1;
+//        OPEN.push(m);
+//      }
+//    }
+//  }
+
 }
 
 
@@ -305,18 +335,27 @@ void MAPF_Solver::createDistanceTable()
 // -------------------------------
 void MAPF_Solver::createFlexTable()
 {
+  // create distance table
+  if (distance_table_p == nullptr) {
+    info("  pre-processing, create distance table by BFS");
+    createDistanceTable();
+    info("  pre-processing, create flexibility table by BFS");
+    preprocessing_comp_time = getSolverElapsedTime();
+    info("  done, elapsed: ", preprocessing_comp_time);
+  }
+
   const Nodes map_node = P->getG()->getV();
   std::vector<bool> visited_table(G->getNodesSize(), false);
   int curr_dist = 0;
 
   // initialize flex_table
-  for (int iter = 0; iter < P->getNum(); ++iter)
+  for (int iter = 0; iter < G->getNodesSize(); ++iter)
   {
-    flex_table.push_back(std::vector<int>(P->getG()->getNodesSize(), 0));
+    flex_table.push_back(std::vector<int>(G->getNodesSize(), 0));
   }
 
   // first loop for all goal nodes
-  for (int i = 0; i < P->getNum(); ++i)
+  for (const auto curr_gnode : map_node)
   {
     // breadth first search to iterate through all nodes
     for (const auto a_node : map_node)
@@ -332,10 +371,10 @@ void MAPF_Solver::createFlexTable()
         OPEN.pop();
 
         // generate neighbour with lower cost to goal node
-        curr_dist = pathDist(i, curr_node);
+        curr_dist = nodeDist(curr_gnode, curr_node);
         for (const auto a_neigh_node : curr_node->neighbor)
         {
-          if ((pathDist(i, a_neigh_node) < curr_dist)
+          if ((nodeDist(curr_gnode, a_neigh_node) < curr_dist)
               && !visited_table[a_neigh_node->id])
           {
             OPEN.push(a_neigh_node);
@@ -349,40 +388,37 @@ void MAPF_Solver::createFlexTable()
       int final_point = 0;
       for (Node* closed_node : CLOSED)
       {
-        final_point = final_point + evalFlex(closed_node, i);
+        final_point = final_point + evalFlex(closed_node, curr_gnode);
       }
 
-      flex_table[i][a_node->id] = final_point;
+      flex_table[curr_gnode->id][a_node->id] = final_point;
 
       // initialize visited
       std::fill(visited_table.begin(),
                 visited_table.end(), false);
     }
-
-    volatile int x_0 = 1;
-    volatile int x_y = 1;
   }
 }
 
-int MAPF_Solver::evalFlex(Node* a_node, int a_id) const
+int MAPF_Solver::evalFlex(Node* a_node, Node* g_node) const
 {
   Nodes C = a_node->neighbor;
   C.push_back(a_node);
-  int a_node_dis = pathDist(a_id, a_node);
+  int a_node_dis = nodeDist(g_node, a_node);
   int current_dis = 0;
   int final_value = 0;
 
   for (Node* v : C)
   {
-    current_dis = pathDist(a_id, v);
+    current_dis = nodeDist(g_node, v);
 
     if (current_dis < a_node_dis)
     {
-      final_value = final_value + 2;
+      final_value = final_value + 3;
     }
     else if (current_dis == a_node_dis)
     {
-      final_value = final_value + 1;
+      final_value = final_value + 0;
     }
     else if (current_dis > a_node_dis)
     {
