@@ -243,6 +243,7 @@ public:
   MAPF_Instance* getP() { return P; }
 
   void createFlexTable();
+  int evalFlex(Node* a_node, int a_id) const;
 };
 
 // ====================================================

@@ -193,8 +193,8 @@ bool PIBT::funcPIBT(Agent* ai, Agent* aj)
   auto compare = [&](Node* const v, Node* const u) {
     int d_v = pathDist(ai->id, v);
     int d_u = pathDist(ai->id, u);
-    int flex_v = evalFlex(v, ai);
-    int flex_u = evalFlex(u, ai);
+    int flex_v = flex_table[ai->id][v->id];
+    int flex_u = flex_table[ai->id][u->id];
 
     if (d_v != d_u) return d_v < d_u;
 

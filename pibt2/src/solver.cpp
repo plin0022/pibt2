@@ -92,6 +92,7 @@ void MAPF_Solver::exec()
   if (distance_table_p == nullptr) {
     info("  pre-processing, create distance table by BFS");
     createDistanceTable();
+    info("  pre-processing, create flexibility table by BFS");
     createFlexTable();
     preprocessing_comp_time = getSolverElapsedTime();
     info("  done, elapsed: ", preprocessing_comp_time);
@@ -304,45 +305,93 @@ void MAPF_Solver::createDistanceTable()
 // -------------------------------
 void MAPF_Solver::createFlexTable()
 {
-  Nodes map_node = P->getG()->getV();
-  Nodes temp_neigh_nodes;
-  volatile int curr_dist = 0;
+  const Nodes map_node = P->getG()->getV();
+  std::vector<bool> visited_table(G->getNodesSize(), false);
+  int curr_dist = 0;
 
-  for (int i = 0; i < P->getNum(); ++i) {
-    std::queue<Node*> OPEN;
-    std::vector<Node*> CLOSED;
+  // initialize flex_table
+  for (int iter = 0; iter < P->getNum(); ++iter)
+  {
+    flex_table.push_back(std::vector<int>(P->getG()->getNodesSize(), 0));
+  }
 
-    // breadth first search to iterate through all nodes and calculate the flexibility
-    for (Node* a_node : map_node)
+  // first loop for all goal nodes
+  for (int i = 0; i < P->getNum(); ++i)
+  {
+    // breadth first search to iterate through all nodes
+    for (const auto a_node : map_node)
     {
+      std::queue<Node*> OPEN;
+      std::vector<Node*> CLOSED;
       OPEN.push(a_node);
 
-      while (!OPEN.empty()) {
+      while (!OPEN.empty())
+      {
+        // pop out current node and expand
         Node* curr_node = OPEN.front();
         OPEN.pop();
-        temp_neigh_nodes = curr_node->neighbor;
+
+        // generate neighbour with lower cost to goal node
         curr_dist = pathDist(i, curr_node);
-
-        for (Node* a_neigh_node : temp_neigh_nodes)
+        for (const auto a_neigh_node : curr_node->neighbor)
         {
-          if (curr_dist - pathDist(i, a_neigh_node) == 1) OPEN.push(a_neigh_node);
+          if ((pathDist(i, a_neigh_node) < curr_dist)
+              && !visited_table[a_neigh_node->id])
+          {
+            OPEN.push(a_neigh_node);
+            visited_table[a_neigh_node->id] = true;
+          }
         }
-
         CLOSED.push_back(curr_node);
       }
 
-      volatile int yyy = 123;
-      // find out how many nodes expanded
-      flex_table[i][a_node->id] = CLOSED.size() - 1;
-      volatile int xxx = 0;
+      // accumulate the points along the way to goal
+      int final_point = 0;
+      for (Node* closed_node : CLOSED)
+      {
+        final_point = final_point + evalFlex(closed_node, i);
+      }
 
-      // clear CLOSED
-      CLOSED.clear();
+      flex_table[i][a_node->id] = final_point;
+
+      // initialize visited
+      std::fill(visited_table.begin(),
+                visited_table.end(), false);
     }
+
+    volatile int x_0 = 1;
+    volatile int x_y = 1;
   }
 }
 
+int MAPF_Solver::evalFlex(Node* a_node, int a_id) const
+{
+  Nodes C = a_node->neighbor;
+  C.push_back(a_node);
+  int a_node_dis = pathDist(a_id, a_node);
+  int current_dis = 0;
+  int final_value = 0;
 
+  for (Node* v : C)
+  {
+    current_dis = pathDist(a_id, v);
+
+    if (current_dis < a_node_dis)
+    {
+      final_value = final_value + 2;
+    }
+    else if (current_dis == a_node_dis)
+    {
+      final_value = final_value + 1;
+    }
+    else if (current_dis > a_node_dis)
+    {
+      final_value = final_value + 0;
+    }
+  }
+
+  return final_value;
+}
 
 
 
